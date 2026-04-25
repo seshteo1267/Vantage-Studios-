@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Vantage Studio</title>
+  <meta name="description" content="Transformations, fresh launches, and every site we've built — real results for real small businesses by Vantage Studio." />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss";
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F5F5F7;
+      color: #1D1D1F;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .nav-link {
+      @apply text-sm text-[#6E6E73] hover:text-[#1D1D1F] transition-colors duration-200;
+    }
+
+    .btn-primary {
+      @apply bg-[#1D1D1F] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#3a3a3c] transition-colors duration-200 cursor-pointer;
+    }
+
+    .section-label {
+      @apply text-xs uppercase tracking-widest text-[#6E6E73] font-medium;
+    }
+
+    @keyframes drift1 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      25%       { transform: translate(80px, -60px) scale(1.06); }
+      50%       { transform: translate(-40px, 80px) scale(0.94); }
+      75%       { transform: translate(60px, 40px) scale(1.03); }
+    }
+    @keyframes drift2 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      25%       { transform: translate(-70px, 50px) scale(1.08); }
+      50%       { transform: translate(50px, -70px) scale(0.97); }
+      75%       { transform: translate(-30px, -30px) scale(1.04); }
+    }
+    .orb-1 { animation: drift1 22s ease-in-out infinite; }
+    .orb-2 { animation: drift2 28s ease-in-out infinite; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+
+    .silver-text {
+      background: linear-gradient(135deg, #c0c0c0 0%, #6e6e6e 28%, #d8d8d8 52%, #5a5a5a 72%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Before/after slider — invisible range input covers the whole image */
+    .slider-range {
+      -webkit-appearance: none;
+      appearance: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body x-data="{ mobileMenu: false }">
+
+  <!-- ANIMATED BACKGROUND ORBS -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div class="orb-1 absolute" style="top:-8%;left:-6%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(199,199,204,0.14) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
+    <div class="orb-2 absolute" style="top:40%;right:-10%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(0,122,255,0.06) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[rgba(245,245,247,0.82)] backdrop-blur-2xl border-b border-[rgba(0,0,0,0.07)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <a href="index.html" class="font-black text-xl tracking-tight text-[#1D1D1F]">
+        Vantage<span class="silver-text">.</span>
+      </a>
+
+      <ul id="nav-list" class="hidden md:flex items-center relative p-1">
+        <div id="nav-pill" style="position:absolute;top:50%;transform:translateY(-50%);background:white;border-radius:999px;box-shadow:0 1px 4px rgba(0,0,0,0.10);pointer-events:none;opacity:0;transition:left 0.22s cubic-bezier(.4,0,.2,1),width 0.22s cubic-bezier(.4,0,.2,1),opacity 0.15s ease;"></div>
+        <li><a href="index.html#services"     class="nav-link relative z-10 block px-4 py-1.5">Services</a></li>
+        <li><a href="index.html#how-it-works" class="nav-link relative z-10 block px-4 py-1.5">How It Works</a></li>
+        <li><a href="portfolio.html"          class="nav-link relative z-10 block px-4 py-1.5 !text-[#1D1D1F] font-semibold">Portfolio</a></li>
+        <li><a href="contact.html"            class="nav-link relative z-10 block px-4 py-1.5">Contact</a></li>
+      </ul>
+
+      <a href="contact.html" class="hidden md:block btn-primary">Book a Call</a>
+
+      <button @click="mobileMenu = !mobileMenu" class="md:hidden text-[#6E6E73] hover:text-[#1D1D1F] p-2">
+        <svg x-show="!mobileMenu" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg x-show="mobileMenu" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div x-show="mobileMenu" x-transition class="md:hidden border-t border-[rgba(0,0,0,0.07)] bg-[rgba(245,245,247,0.95)] backdrop-blur-xl px-6 py-5 flex flex-col gap-5">
+      <a href="index.html#services"     @click="mobileMenu = false" class="nav-link text-base">Services</a>
+      <a href="index.html#how-it-works" @click="mobileMenu = false" class="nav-link text-base">How It Works</a>
+      <a href="portfolio.html"                                       class="text-[#1D1D1F] text-base font-semibold">Portfolio</a>
+      <a href="contact.html"            @click="mobileMenu = false" class="nav-link text-base">Contact</a>
+      <a href="contact.html" class="btn-primary w-fit mt-1">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="relative z-10 pt-36 pb-16 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <p class="section-label mb-6 fade-up">Our Work</p>
+      <h1 class="text-5xl md:text-7xl font-black leading-[0.93] tracking-tight mb-6 text-[#1D1D1F] fade-up fade-up-delay-1">
+        Real sites.<br/>Real results.
+      </h1>
+      <p class="text-[#6E6E73] text-lg max-w-lg leading-relaxed fade-up fade-up-delay-2">
+        Transformations, fresh launches, and everything in between — every site we build, start to finish.
+      </p>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="relative z-10 py-8 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-24">
+
+      <!-- ─── CASE STUDY 1: Matteo & Co. ─── -->
+      <div class="fade-up" x-data="{ pos: 50 }">
+
+        <!-- Header row -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-xs font-semibold text-[#6E6E73] uppercase tracking-widest border border-[#D2D2D7] px-3 py-1 rounded-full">Refresh</span>
+              <span class="text-xs text-[#AEAEB2]">Interior Styling</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-black text-[#1D1D1F]">Matteo &amp; Co.</h2>
+            <p class="text-[#6E6E73] text-sm mt-1">Fine Home Furnishings — Flemington, NJ</p>
+          </div>
+          <a href="../Matteo Design/index.html" target="_blank"
+             class="inline-flex items-center gap-2 text-sm font-semibold text-[#1D1D1F] hover:text-[#6E6E73] transition-colors shrink-0">
+            View live site
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Slider -->
+        <div class="relative rounded-2xl overflow-hidden shadow-lg select-none" style="aspect-ratio:16/9; background:#E5E5EA;">
+
+          <!-- AFTER (base layer — always fully visible) -->
+          <!--
+            TO ADD THE AFTER IMAGE:
+            1. Take a full-page screenshot of the new Matteo & Co. site
+            2. Save it as "matteo-after.jpg" in this folder (vantage-studio/)
+            3. The image will appear automatically
+          -->
+          <img src="matteo-after.jpg" alt="Matteo &amp; Co. — After"
+               class="absolute inset-0 w-full h-full object-cover object-top"
+               onerror="this.style.display='none'" />
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#E2FF66]"
+               style="z-index:0;"
+               x-show="pos >= 0">
+            <p class="font-black text-xl text-[#1D1D1F] mb-1">After</p>
+            <p class="text-sm font-medium text-[#1D1D1F] opacity-50">Save screenshot as matteo-after.jpg</p>
+          </div>
+
+          <!-- BEFORE (clipped layer — reveals from left) -->
+          <div class="absolute inset-0 overflow-hidden" :style="`width:${pos}%`" style="z-index:1;">
+            <!--
+              TO ADD THE BEFORE IMAGE:
+              1. Screenshot the old Squarespace site NOW before it goes down
+              2. Save it as "matteo-before.jpg" in this folder (vantage-studio/)
+              3. The image will appear automatically
+            -->
+            <img src="matteo-before.jpg" alt="Matteo &amp; Co. — Before"
+                 class="absolute inset-0 h-full object-cover object-top"
+                 style="width:100vw; max-width:none;"
+                 onerror="this.style.display='none'" />
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#C7C7CC]"
+                 style="width:100vw;">
+              <p class="font-black text-xl text-[#1D1D1F] mb-1">Before</p>
+              <p class="text-sm font-medium text-[#1D1D1F] opacity-50">Save screenshot as matteo-before.jpg</p>
+            </div>
+          </div>
+
+          <!-- Divider line + drag handle -->
+          <div class="absolute top-0 bottom-0 pointer-events-none"
+               :style="`left:${pos}%; transform:translateX(-50%); z-index:2;`">
+            <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-0.5 bg-white shadow-lg"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#1D1D1F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-4 3 4 3M16 9l4 3-4 3"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Corner labels -->
+          <div class="absolute top-4 left-4 pointer-events-none" style="z-index:3;">
+            <span class="bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">Before</span>
+          </div>
+          <div class="absolute top-4 right-4 pointer-events-none" style="z-index:3;">
+            <span class="bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm">After</span>
+          </div>
+
+          <!-- Full-area invisible range input -->
+          <input type="range" min="0" max="100" x-model="pos"
+                 class="slider-range" aria-label="Drag to compare before and after" />
+        </div>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-3 gap-4 mt-5">
+          <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
+            <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Tier</p>
+            <p class="font-bold text-[#1D1D1F] text-sm">Refresh</p>
+          </div>
+          <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
+            <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Turnaround</p>
+            <p class="font-bold text-[#1D1D1F] text-sm">5 Days</p>
+          </div>
+          <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
+            <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Investment</p>
+            <p class="font-bold text-[#1D1D1F] text-sm">$1,000</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- ─── END CASE STUDY 1 ─── -->
+
+      <!-- ─── CASE STUDY 2: Placeholder ─── -->
+      <div class="fade-up fade-up-delay-1">
+
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-xs font-semibold text-[#AEAEB2] uppercase tracking-widest border border-[#E5E5EA] px-3 py-1 rounded-full">Coming Soon</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-black text-[#AEAEB2]">Next Project</h2>
+          <p class="text-[#AEAEB2] text-sm mt-1">In progress — check back soon</p>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.06)] bg-white shadow-sm" style="aspect-ratio:16/9;">
+          <div class="w-full h-full flex flex-col items-center justify-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-[#F5F5F7] flex items-center justify-center">
+              <svg class="w-5 h-5 text-[#AEAEB2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+              </svg>
+            </div>
+            <p class="text-[#AEAEB2] text-sm font-medium">Coming soon</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 mt-5 opacity-30">
+          <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
+            <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Tier</p>
+            <p class="font-bold text-[#1D1D1F] text-sm">—</p>
+          </div>
+          <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
+            <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Turnaround</p>
+            <p class="font-bold text-[#1D1D1F] text-sm">—</p>
+          </div>
+          <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
+            <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Investment</p>
+            <p class="font-bold text-[#1D1D1F] text-sm">—</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- ─── END CASE STUDY 2 ─── -->
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative z-10 py-20 px-6 lg:px-8 mt-12">
+    <div class="max-w-7xl mx-auto fade-up fade-up-delay-2">
+      <div class="bg-[#1D1D1F] rounded-3xl px-8 py-16 md:px-16 text-center">
+        <h2 class="text-4xl md:text-5xl font-black text-white leading-[0.95] mb-5">
+          Want your site<br/>in here?
+        </h2>
+        <p class="text-[rgba(255,255,255,0.5)] text-lg mb-8 max-w-sm mx-auto leading-relaxed">
+          Book a free call and let's talk about what's possible for your business.
+        </p>
+        <a href="contact.html" class="inline-flex items-center gap-2 bg-white text-[#1D1D1F] font-semibold px-8 py-4 rounded-full hover:bg-[#E5E5EA] transition-colors text-base">
+          Book a Free Call
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 py-8 px-6 lg:px-8 border-t border-[rgba(0,0,0,0.08)]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="index.html" class="font-black text-xl tracking-tight text-[#1D1D1F]">
+        Vantage<span class="silver-text">.</span>
+      </a>
+      <div class="flex items-center gap-8">
+        <a href="index.html#services" class="nav-link text-xs">Services</a>
+        <a href="portfolio.html"      class="nav-link text-xs">Portfolio</a>
+        <a href="contact.html"        class="nav-link text-xs">Contact</a>
+      </div>
+      <p class="text-[#AEAEB2] text-xs">© 2025 Vantage Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    (function() {
+      const list = document.getElementById('nav-list');
+      const pill = document.getElementById('nav-pill');
+      if (!list || !pill) return;
+      list.querySelectorAll('li').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          pill.style.left   = item.offsetLeft + 'px';
+          pill.style.width  = item.offsetWidth + 'px';
+          pill.style.height = item.offsetHeight + 'px';
+          pill.style.opacity = '1';
+        });
+      });
+      list.addEventListener('mouseleave', () => { pill.style.opacity = '0'; });
+    })();
+  </script>
+
+</body>
+</html>

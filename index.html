@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vantage Studio — Premium Websites for Small Businesses</title>
+  <meta name="description" content="Premium, conversion-focused websites for established small businesses. Fast turnaround, no agency drag." />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss";
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F5F5F7;
+      color: #1D1D1F;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .nav-link {
+      @apply text-sm text-[#6E6E73] hover:text-[#1D1D1F] transition-colors duration-200;
+    }
+
+    .btn-primary {
+      @apply bg-[#1D1D1F] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#3a3a3c] transition-colors duration-200 cursor-pointer;
+    }
+
+    .btn-primary-lg {
+      @apply inline-flex items-center gap-2 bg-[#1D1D1F] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#3a3a3c] transition-all duration-200 text-base cursor-pointer;
+    }
+
+    .btn-outline {
+      @apply inline-flex items-center border border-[#D2D2D7] text-[#1D1D1F] font-medium px-8 py-4 rounded-full hover:border-[#1D1D1F] transition-colors duration-200 text-base;
+    }
+
+    .card {
+      @apply bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-6 shadow-sm;
+    }
+
+    .section-label {
+      @apply text-xs uppercase tracking-widest text-[#6E6E73] font-medium;
+    }
+
+    .form-input {
+      @apply w-full bg-white border border-[#D2D2D7] rounded-xl px-4 py-3 text-[#1D1D1F] text-sm placeholder-[#AEAEB2] focus:outline-none focus:border-[#1D1D1F] transition-colors;
+    }
+
+    /* Animated background orbs */
+    @keyframes drift1 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      25%       { transform: translate(80px, -60px) scale(1.06); }
+      50%       { transform: translate(-40px, 80px) scale(0.94); }
+      75%       { transform: translate(60px, 40px) scale(1.03); }
+    }
+    @keyframes drift2 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      25%       { transform: translate(-70px, 50px) scale(1.08); }
+      50%       { transform: translate(50px, -70px) scale(0.97); }
+      75%       { transform: translate(-30px, -30px) scale(1.04); }
+    }
+    @keyframes drift3 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      33%       { transform: translate(40px, 60px) scale(0.96); }
+      66%       { transform: translate(-60px, -40px) scale(1.07); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-5px); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-4px); }
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .orb-1 { animation: drift1 22s ease-in-out infinite; }
+    .orb-2 { animation: drift2 28s ease-in-out infinite; }
+    .orb-3 { animation: drift3 20s ease-in-out infinite; }
+
+    .float-1 { animation: float  4.2s ease-in-out infinite; }
+    .float-2 { animation: float2 5.1s ease-in-out infinite 0.8s; }
+    .float-3 { animation: float  4.8s ease-in-out infinite 1.6s; }
+
+    .live-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+    /* Scroll reveal */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible           { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1           { transition-delay: 0.10s; }
+    .fade-up-delay-2           { transition-delay: 0.20s; }
+    .fade-up-delay-3           { transition-delay: 0.30s; }
+    .fade-up-delay-4           { transition-delay: 0.40s; }
+
+    /* Tilt cards */
+    .tilt-card {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .tilt-card:hover {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    /* Highlight accent */
+    .text-highlight {
+      background: #E2FF66;
+      padding: 0 6px 2px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* Step number outline text */
+    .step-num {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, #e4e4e4 0%, #a8a8a8 30%, #f2f2f2 52%, #9a9a9a 72%, #d8d8d8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    /* Metallic silver — for text and icon backgrounds */
+    .silver-text {
+      background: linear-gradient(135deg, #c0c0c0 0%, #6e6e6e 28%, #d8d8d8 52%, #5a5a5a 72%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .silver-bg {
+      background: linear-gradient(135deg, #ebebeb 0%, #b8b8b8 40%, #e8e8e8 60%, #a0a0a0 100%);
+    }
+  </style>
+</head>
+<body x-data="{ mobileMenu: false }">
+
+  <!-- ANIMATED BACKGROUND ORBS (fixed, behind everything) -->
+  <div id="bg-container" class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div class="orb-1 absolute" style="top:-8%;left:-6%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(199,199,204,0.14) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
+    <div class="orb-2 absolute" style="top:25%;right:-12%;width:650px;height:650px;background:radial-gradient(ellipse,rgba(0,122,255,0.07) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
+    <div class="orb-3 absolute" style="bottom:5%;left:25%;width:550px;height:420px;background:radial-gradient(ellipse,rgba(199,199,204,0.09) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[rgba(245,245,247,0.82)] backdrop-blur-2xl border-b border-[rgba(0,0,0,0.07)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <a href="index.html" class="flex items-center gap-1 font-black text-xl tracking-tight text-[#1D1D1F]">
+        Vantage<span class="silver-text">.</span>
+      </a>
+
+      <ul id="nav-list" class="hidden md:flex items-center relative p-1">
+        <div id="nav-pill" style="position:absolute;top:50%;transform:translateY(-50%);background:white;border-radius:999px;box-shadow:0 1px 4px rgba(0,0,0,0.10);pointer-events:none;opacity:0;transition:left 0.22s cubic-bezier(.4,0,.2,1),width 0.22s cubic-bezier(.4,0,.2,1),opacity 0.15s ease;"></div>
+        <li><a href="#services"     class="nav-link relative z-10 block px-4 py-1.5">Services</a></li>
+        <li><a href="#how-it-works" class="nav-link relative z-10 block px-4 py-1.5">How It Works</a></li>
+        <li><a href="portfolio.html" class="nav-link relative z-10 block px-4 py-1.5">Portfolio</a></li>
+        <li><a href="contact.html"  class="nav-link relative z-10 block px-4 py-1.5">Contact</a></li>
+      </ul>
+
+      <a href="contact.html" class="hidden md:block btn-primary">Book a Call</a>
+
+      <button @click="mobileMenu = !mobileMenu" class="md:hidden text-[#6E6E73] hover:text-[#1D1D1F] p-2">
+        <svg x-show="!mobileMenu" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg x-show="mobileMenu" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div x-show="mobileMenu" x-transition class="md:hidden border-t border-[rgba(0,0,0,0.07)] bg-[rgba(245,245,247,0.95)] backdrop-blur-xl px-6 py-5 flex flex-col gap-5">
+      <a href="#services"     @click="mobileMenu = false" class="nav-link text-base">Services</a>
+      <a href="#how-it-works" @click="mobileMenu = false" class="nav-link text-base">How It Works</a>
+      <a href="portfolio.html"                             class="nav-link text-base">Portfolio</a>
+      <a href="contact.html"                               class="nav-link text-base">Contact</a>
+      <a href="contact.html" class="btn-primary w-fit mt-1">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative z-10 pt-36 pb-20 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Status pill -->
+      <div class="inline-flex items-center gap-2.5 bg-white border border-[rgba(0,0,0,0.07)] rounded-full px-4 py-2 mb-8 shadow-sm fade-up">
+        <span class="live-dot w-2 h-2 rounded-full bg-green-500 block"></span>
+        <span class="text-xs font-medium text-[#6E6E73]">Taking new clients</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-5xl md:text-7xl lg:text-[88px] font-black leading-[0.93] tracking-tight mb-7 fade-up fade-up-delay-1">
+        Your website<br/>
+        should work as<br/>
+        hard as you do.
+      </h1>
+
+      <p class="text-[#6E6E73] text-lg md:text-xl max-w-xl mb-10 leading-relaxed fade-up fade-up-delay-2">
+        Premium, conversion-focused websites for established small businesses that have outgrown their current site — fast, clean, and without the agency drag.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 fade-up fade-up-delay-3">
+        <a href="#contact" class="btn-primary-lg">
+          Book a Free Consultation
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="portfolio.html" class="btn-outline">See Our Work</a>
+      </div>
+
+      <!-- Stats under CTA -->
+      <div class="flex gap-10 mt-8 pt-8 border-t border-[rgba(0,0,0,0.08)] fade-up fade-up-delay-4">
+        <div>
+          <p class="text-2xl font-black text-[#1D1D1F]">7–14</p>
+          <p class="text-[10px] uppercase tracking-widest text-[#6E6E73] mt-0.5">Day turnaround</p>
+        </div>
+        <div>
+          <p class="text-2xl font-black text-[#1D1D1F]">100%</p>
+          <p class="text-[10px] uppercase tracking-widest text-[#6E6E73] mt-0.5">In-house design</p>
+        </div>
+        <div>
+          <p class="text-2xl font-black text-[#1D1D1F]">100%</p>
+          <p class="text-[10px] uppercase tracking-widest text-[#6E6E73] mt-0.5">Custom built</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="relative z-10 py-20 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="mb-12 fade-up">
+        <p class="section-label mb-4">Services</p>
+        <h2 class="text-4xl md:text-5xl font-black leading-tight text-[#1D1D1F] mb-4">
+          Three tiers.<br/>One standard.
+        </h2>
+        <p class="text-[#6E6E73] max-w-lg leading-relaxed text-sm">Every project gets the same obsessive attention to design, copy, and conversion — regardless of tier.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Refresh -->
+        <a href="tier-refresh.html" class="card tilt-card block group fade-up">
+          <div class="flex items-start justify-between mb-6">
+            <span class="text-xs font-semibold text-[#6E6E73] uppercase tracking-widest border border-[#D2D2D7] px-3 py-1 rounded-full">Refresh</span>
+            <svg class="w-4 h-4 text-[#AEAEB2] group-hover:text-[#1D1D1F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
+          <p class="text-2xl font-black text-[#1D1D1F] mb-1">$1,000</p>
+          <h3 class="text-xl font-bold mb-2 text-[#1D1D1F]">Elevate what you have.</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed mb-6">Your existing pages, redesigned to look high-end. No new pages — just a serious visual upgrade.</p>
+          <ul class="space-y-2.5 text-sm text-[#6E6E73]">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Same pages, new design</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Mobile responsive</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Premium look + feel</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> 30-day support window</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> 5-day turnaround</li>
+          </ul>
+        </a>
+
+        <!-- Launch -->
+        <a href="tier-launch.html" class="card tilt-card block group fade-up fade-up-delay-1">
+          <div class="flex items-start justify-between mb-6">
+            <span class="text-xs font-semibold text-[#6E6E73] uppercase tracking-widest border border-[#D2D2D7] px-3 py-1 rounded-full">Launch</span>
+            <svg class="w-4 h-4 text-[#AEAEB2] group-hover:text-[#1D1D1F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
+          <p class="text-2xl font-black text-[#1D1D1F] mb-1">$1,500–$2,000</p>
+          <h3 class="text-xl font-bold mb-2 text-[#1D1D1F]">Get online.</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed mb-6">A clean, professional site that makes you look credible and converts visitors into calls.</p>
+          <ul class="space-y-2.5 text-sm text-[#6E6E73]">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Up to 5–7 pages</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Mobile-optimized</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Booking & inquiry intake</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Basic SEO</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> 30-day support window</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> 7–10 day turnaround</li>
+          </ul>
+        </a>
+
+        <!-- Growth (featured) -->
+        <a href="tier-growth.html" class="tilt-card block group relative fade-up fade-up-delay-2 rounded-2xl p-6 shadow-sm"
+           style="background: #ffffff; border: 1.5px solid #C7C7CC;">
+          <div class="absolute -top-3.5 left-6">
+            <span class="bg-[#1D1D1F] text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">Most Popular</span>
+          </div>
+          <div class="flex items-start justify-between mb-6 mt-2">
+            <span class="text-xs font-semibold text-[#6E6E73] uppercase tracking-widest border border-[#D2D2D7] px-3 py-1 rounded-full">Growth</span>
+            <svg class="w-4 h-4 text-[#AEAEB2] group-hover:text-[#1D1D1F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
+          <p class="text-2xl font-black text-[#1D1D1F] mb-1">$3,500–$5,000</p>
+          <h3 class="text-xl font-bold mb-2 text-[#1D1D1F]">Outgrow your competition.</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed mb-6">A fully custom 8-page site with strong copywriting, testimonials, and an optimized inquiry flow.</p>
+          <ul class="space-y-2.5 text-sm text-[#6E6E73]">
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Up to 8 pages</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Custom copywriting</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Testimonials + case studies</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Analytics setup</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Advanced SEO</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> 2 revision rounds</li>
+            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> 10-day turnaround</li>
+          </ul>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IN-HOUSE DIFFERENTIATOR -->
+  <section class="relative z-10 py-20 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-[#1D1D1F] rounded-3xl px-8 py-14 md:px-16 relative overflow-hidden">
+
+        <!-- Subtle glow -->
+        <div class="absolute top-0 right-0 w-96 h-96 pointer-events-none" style="background:radial-gradient(ellipse,rgba(199,199,204,0.12) 0%,transparent 70%);filter:blur(50px);"></div>
+
+        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-up">
+            <span class="inline-block bg-white/10 border border-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-6">How We're Different</span>
+            <h2 class="text-4xl md:text-5xl font-black text-white leading-tight mb-4">
+              We don't broker.<br/>We build.
+            </h2>
+            <p class="text-[rgba(255,255,255,0.55)] leading-relaxed">
+              Most web design "agencies" take your money, outsource the work overseas, and mark it up. You end up dealing with a middleman who never wrote a line of code. That's not us.
+            </p>
+          </div>
+
+          <div class="space-y-5 fade-up fade-up-delay-1">
+            <div class="flex gap-4 items-start">
+              <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+              <div>
+                <p class="font-semibold text-white mb-0.5">Every site is built by us, in-house</p>
+                <p class="text-sm text-[rgba(255,255,255,0.45)] leading-relaxed">No offshore contractors. No templates handed off to a stranger. You get the person who actually built it.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+              <div>
+                <p class="font-semibold text-white mb-0.5">Direct communication, zero middlemen</p>
+                <p class="text-sm text-[rgba(255,255,255,0.45)] leading-relaxed">You talk directly to the designer and developer. Feedback lands instantly and changes happen fast.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+              </svg>
+              <div>
+                <p class="font-semibold text-white mb-0.5">Consistent quality, every time</p>
+                <p class="text-sm text-[rgba(255,255,255,0.45)] leading-relaxed">The same eye, the same standard, every project. Not whoever the agency assigned to your ticket.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="relative z-10 py-20 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="mb-12 fade-up">
+        <p class="section-label mb-4">Who We Work With</p>
+        <h2 class="text-4xl md:text-5xl font-black leading-tight max-w-lg text-[#1D1D1F]">Built for businesses that are already winning.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+
+        <div class="card tilt-card fade-up">
+          <svg class="w-5 h-5 text-[#1D1D1F] mb-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          <h3 class="font-bold text-lg mb-2 text-[#1D1D1F]">Home Services</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed">Remodeling contractors, landscape designers, painters, roofers, and kitchen & bath specialists who need a site that earns trust before the first call.</p>
+        </div>
+
+        <div class="card tilt-card fade-up fade-up-delay-1">
+          <svg class="w-5 h-5 text-[#1D1D1F] mb-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <h3 class="font-bold text-lg mb-2 text-[#1D1D1F]">Professional Firms</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed">Law firms, accounting firms, consultants, and executive coaches who need an authoritative online presence that reflects their real-world quality.</p>
+        </div>
+
+        <div class="card tilt-card fade-up fade-up-delay-2">
+          <svg class="w-5 h-5 text-[#1D1D1F] mb-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <h3 class="font-bold text-lg mb-2 text-[#1D1D1F]">Med Spas & Wellness</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed">Cosmetic dentists, skin clinics, and wellness practices that need a premium, visual-forward site that sells trust and drives bookings.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="relative z-10 py-20 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="mb-12 fade-up">
+        <p class="section-label mb-4">The Process</p>
+        <h2 class="text-4xl md:text-5xl font-black leading-tight text-[#1D1D1F]">From idea to live<br/>in under 2 weeks.</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="card tilt-card fade-up">
+          <span class="text-2xl font-black text-[#1D1D1F] block mb-5">1</span>
+          <h3 class="font-bold text-lg mb-2 text-[#1D1D1F]">Discovery Call</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed">30 minutes. We learn your business, goals, and what's not working with your current site.</p>
+        </div>
+        <div class="card tilt-card fade-up fade-up-delay-1">
+          <span class="text-2xl font-black text-[#1D1D1F] block mb-5">2</span>
+          <h3 class="font-bold text-lg mb-2 text-[#1D1D1F]">Intake & Kickoff</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed">You share materials. We handle strategy, messaging, and design — everything.</p>
+        </div>
+        <div class="card tilt-card fade-up fade-up-delay-2">
+          <span class="text-2xl font-black text-[#1D1D1F] block mb-5">3</span>
+          <h3 class="font-bold text-lg mb-2 text-[#1D1D1F]">Build & Review</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed">We build your site in days, not months. You review, give feedback, and we refine it together.</p>
+        </div>
+        <div class="card tilt-card fade-up fade-up-delay-3">
+          <span class="text-2xl font-black text-[#1D1D1F] block mb-5">4</span>
+          <h3 class="font-bold text-lg mb-2 text-[#1D1D1F]">Launch</h3>
+          <p class="text-[#6E6E73] text-sm leading-relaxed">Your new site goes live. Clean handoff with everything you need to run it independently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO PREVIEW -->
+  <section class="relative z-10 py-20 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 fade-up">
+        <div>
+          <p class="section-label mb-4">Our Work</p>
+          <h2 class="text-4xl md:text-5xl font-black leading-tight text-[#1D1D1F]">Results speak<br/>louder than decks.</h2>
+        </div>
+        <a href="portfolio.html" class="btn-outline w-fit text-sm px-6 py-3">View Portfolio →</a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 fade-up">
+        <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl aspect-video flex items-center justify-center shadow-sm">
+          <p class="text-[#AEAEB2] text-sm">Coming soon</p>
+        </div>
+        <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl aspect-video flex items-center justify-center shadow-sm">
+          <p class="text-[#AEAEB2] text-sm">Coming soon</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="relative z-10 py-20 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto fade-up">
+      <div class="bg-[#1D1D1F] rounded-3xl px-8 py-16 md:px-16 text-center relative overflow-hidden">
+        <!-- Subtle inner glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-64 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(199,199,204,0.18) 0%,transparent 70%);filter:blur(40px);"></div>
+        <p class="section-label text-[rgba(255,255,255,0.35)] mb-6 relative z-10">Ready to Begin?</p>
+        <h2 class="text-4xl md:text-6xl font-black text-white leading-[0.95] mb-5 relative z-10">
+          Ready to look like<br/>the premium option?
+        </h2>
+        <p class="text-[rgba(255,255,255,0.5)] text-lg mb-8 max-w-md mx-auto leading-relaxed relative z-10">
+          Book a free 30-minute call. No pitch deck. Just a direct conversation about your site and what it could be doing better.
+        </p>
+        <a href="contact.html" class="relative z-10 inline-flex items-center gap-2 bg-white text-[#1D1D1F] font-semibold px-8 py-4 rounded-full hover:bg-[#E5E5EA] transition-colors text-base">
+          Book a Free Call
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="relative z-10 py-20 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+
+        <div class="fade-up">
+          <p class="section-label mb-4">Get In Touch</p>
+          <h2 class="text-4xl md:text-5xl font-black leading-tight mb-4 text-[#1D1D1F]">Let's talk about<br/>your site.</h2>
+          <p class="text-[#6E6E73] leading-relaxed mb-6 max-w-sm">Have a project in mind? Tell us about your business and what you're looking to achieve. We'll get back to you within 24 hours.</p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 text-[#6E6E73] text-sm">
+              <div class="w-9 h-9 rounded-xl bg-white border border-[rgba(0,0,0,0.07)] flex items-center justify-center shadow-sm shrink-0">
+                <svg class="w-4 h-4 text-[#1D1D1F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              hello@vantagestudio.co
+            </div>
+            <div class="flex items-center gap-3 text-[#6E6E73] text-sm">
+              <div class="w-9 h-9 rounded-xl bg-white border border-[rgba(0,0,0,0.07)] flex items-center justify-center shadow-sm shrink-0">
+                <svg class="w-4 h-4 text-[#1D1D1F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              Response within 24 hours
+            </div>
+          </div>
+        </div>
+
+        <form class="space-y-4 fade-up fade-up-delay-1" x-data="{ submitted: false }" @submit.prevent="submitted = true">
+          <div x-show="!submitted">
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="text-xs text-[#6E6E73] uppercase tracking-widest block mb-2">Name</label>
+                <input type="text" placeholder="John Smith" required class="form-input" />
+              </div>
+              <div>
+                <label class="text-xs text-[#6E6E73] uppercase tracking-widest block mb-2">Email</label>
+                <input type="email" placeholder="john@business.com" required class="form-input" />
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="text-xs text-[#6E6E73] uppercase tracking-widest block mb-2">Business</label>
+              <input type="text" placeholder="Your business name" class="form-input" />
+            </div>
+            <div class="mb-6">
+              <label class="text-xs text-[#6E6E73] uppercase tracking-widest block mb-2">Message</label>
+              <textarea placeholder="Tell us about your business and what you're looking for..." rows="4" class="form-input resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-primary-lg w-full justify-center">Send Message</button>
+          </div>
+          <div x-show="submitted" class="text-center py-16">
+            <div class="w-12 h-12 rounded-full bg-[#C7C7CC] flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <p class="text-[#1D1D1F] font-bold text-lg">Message sent.</p>
+            <p class="text-[#6E6E73] text-sm mt-2">We'll get back to you within 24 hours.</p>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 py-8 px-6 lg:px-8 border-t border-[rgba(0,0,0,0.08)]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="index.html" class="flex items-center gap-1 font-black text-xl tracking-tight text-[#1D1D1F]">
+        Vantage<span class="silver-text">.</span>
+      </a>
+      <div class="flex items-center gap-8">
+        <a href="#services"    class="nav-link text-xs">Services</a>
+        <a href="portfolio.html" class="nav-link text-xs">Portfolio</a>
+        <a href="#contact"     class="nav-link text-xs">Contact</a>
+      </div>
+      <p class="text-[#AEAEB2] text-xs">© 2025 Vantage Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => revealObserver.observe(el));
+
+    // Animated SVG background paths (ported from background-paths component)
+    (function() {
+      const container = document.getElementById('bg-container');
+      if (!container) return;
+      [1, -1].forEach(pos => {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 696 316');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+        svg.style.position = 'absolute';
+        svg.style.top = '0'; svg.style.left = '0';
+        svg.style.width = '100%'; svg.style.height = '100%';
+        container.appendChild(svg);
+        for (let i = 0; i < 36; i++) {
+          const d = `M-${380 - i*5*pos} -${189 + i*6}C-${380 - i*5*pos} -${189 + i*6} -${312 - i*5*pos} ${216 - i*6} ${152 - i*5*pos} ${343 - i*6}C${616 - i*5*pos} ${470 - i*6} ${684 - i*5*pos} ${875 - i*6} ${684 - i*5*pos} ${875 - i*6}`;
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', d);
+          path.setAttribute('stroke', '#1D1D1F');
+          path.setAttribute('stroke-width', String(0.5 + i * 0.03));
+          path.style.opacity = String(Math.min(0.03 + i * 0.004, 0.16));
+          svg.appendChild(path);
+          try {
+            const len = path.getTotalLength();
+            if (len > 0) {
+              const dashLen = len * 0.3;
+              path.style.strokeDasharray = `${dashLen} ${len - dashLen}`;
+              const dur = (20 + Math.random() * 10) * 1000;
+              path.animate(
+                [{ strokeDashoffset: 0 }, { strokeDashoffset: -len }],
+                { duration: dur, delay: -(Math.random() * dur), iterations: Infinity, easing: 'linear', fill: 'both' }
+              );
+            }
+          } catch(e) {}
+        }
+      });
+    })();
+
+    // Sliding pill nav (ported from nav-header component)
+    (function() {
+      const list = document.getElementById('nav-list');
+      const pill = document.getElementById('nav-pill');
+      if (!list || !pill) return;
+      const items = list.querySelectorAll('li');
+      items.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          pill.style.left   = item.offsetLeft + 'px';
+          pill.style.width  = item.offsetWidth + 'px';
+          pill.style.height = item.offsetHeight + 'px';
+          pill.style.opacity = '1';
+        });
+      });
+      list.addEventListener('mouseleave', () => { pill.style.opacity = '0'; });
+    })();
+
+    // 3D tilt on service/feature cards
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect  = card.getBoundingClientRect();
+        const x     = e.clientX - rect.left;
+        const y     = e.clientY - rect.top;
+        const cx    = rect.width  / 2;
+        const cy    = rect.height / 2;
+        const rotX  = ((y - cy) / cy) * -5;
+        const rotY  = ((x - cx) / cx) *  5;
+        card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform 0.45s ease, box-shadow 0.45s ease';
+        card.style.transform  = '';
+        setTimeout(() => { card.style.transition = ''; }, 450);
+      });
+    });
+  </script>
+
+</body>
+</html>

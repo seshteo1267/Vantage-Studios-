@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Refresh — $1,000 | Vantage Studio</title>
+  <meta name="description" content="Your existing site, redesigned to look premium. Same pages, serious visual upgrade. 5-day turnaround." />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
+
+  <style type="text/tailwindcss">
+    @import "tailwindcss";
+    body { font-family: 'Inter', sans-serif; background-color: #080808; color: #ffffff; -webkit-font-smoothing: antialiased; }
+    .nav-link { @apply text-sm text-neutral-400 hover:text-white transition-colors duration-200; }
+    .btn-primary { @apply bg-[#E2FF66] text-black text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-white transition-colors duration-200 cursor-pointer; }
+    .btn-primary-lg { @apply inline-flex items-center gap-2 bg-[#E2FF66] text-black font-semibold px-8 py-4 rounded-full hover:bg-white transition-colors duration-200 text-base cursor-pointer; }
+    .card { @apply bg-[#111111] border border-[#1e1e1e] rounded-2xl p-6; }
+    .section-label { @apply text-xs uppercase tracking-widest text-neutral-500 font-medium; }
+    .form-input { @apply w-full bg-[#111111] border border-[#1e1e1e] rounded-xl px-4 py-3 text-white text-sm placeholder-neutral-600 focus:outline-none focus:border-[#E2FF66]/40 transition-colors; }
+  </style>
+</head>
+<body x-data="{ mobileMenu: false }">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-[#1a1a1a] bg-[#080808]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-white font-black text-xl tracking-tight">Vantage<span class="text-[#E2FF66]">.</span></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <a href="#book" class="hidden md:block btn-primary">Book a Call</a>
+      <button @click="mobileMenu = !mobileMenu" class="md:hidden text-neutral-400 hover:text-white p-2">
+        <svg x-show="!mobileMenu" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="mobileMenu" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div x-show="mobileMenu" x-transition class="md:hidden border-t border-[#1a1a1a] bg-[#080808] px-6 py-5 flex flex-col gap-5">
+      <a href="index.html#services" @click="mobileMenu = false" class="nav-link text-base">Services</a>
+      <a href="index.html#how-it-works" @click="mobileMenu = false" class="nav-link text-base">How It Works</a>
+      <a href="portfolio.html" class="nav-link text-base">Portfolio</a>
+      <a href="index.html#contact" @click="mobileMenu = false" class="nav-link text-base">Contact</a>
+      <a href="#book" class="btn-primary w-fit mt-1">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-32 pb-16 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <a href="index.html#services" class="inline-flex items-center gap-2 text-neutral-500 text-sm hover:text-white transition-colors mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/></svg>
+        All tiers
+      </a>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6">
+        <div>
+          <span class="text-xs font-semibold text-neutral-500 uppercase tracking-widest border border-[#2a2a2a] px-3 py-1 rounded-full inline-block mb-5">Refresh</span>
+          <h1 class="text-5xl md:text-7xl font-black leading-[0.93] tracking-tight">
+            Look premium.<br/><span class="text-[#E2FF66]">Fast.</span>
+          </h1>
+        </div>
+        <div class="text-right">
+          <p class="text-5xl md:text-6xl font-black text-white">$1,000</p>
+          <p class="text-neutral-500 text-sm mt-1">Flat rate. No surprises.</p>
+        </div>
+      </div>
+      <p class="text-neutral-400 text-lg max-w-2xl leading-relaxed">
+        You already have a site. It just doesn't look the way your business does in real life. We take your existing pages and rebuild them into something that actually reflects your quality — without changing your content or adding complexity.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="py-16 px-6 lg:px-8 border-t border-[#1a1a1a]">
+    <div class="max-w-7xl mx-auto">
+      <p class="section-label mb-10">What's Included</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <div class="card">
+          <div class="w-10 h-10 rounded-xl bg-[#E2FF66]/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-[#E2FF66]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Full Visual Redesign</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">Every page rebuilt with premium typography, spacing, and layout. Same content — completely elevated look.</p>
+        </div>
+
+        <div class="card">
+          <div class="w-10 h-10 rounded-xl bg-[#E2FF66]/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-[#E2FF66]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Mobile Responsive</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">Looks sharp on every device. We test across mobile, tablet, and desktop before delivery.</p>
+        </div>
+
+        <div class="card">
+          <div class="w-10 h-10 rounded-xl bg-[#E2FF66]/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-[#E2FF66]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">5-Day Turnaround</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">From kickoff to delivery in 5 business days. No drawn-out agency timelines.</p>
+        </div>
+
+        <div class="card">
+          <div class="w-10 h-10 rounded-xl bg-[#E2FF66]/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-[#E2FF66]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">30-Day Support Window</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">After launch, small content changes are free for 30 days. Typos, photo swaps, copy tweaks — covered.</p>
+        </div>
+
+        <div class="card">
+          <div class="w-10 h-10 rounded-xl bg-[#E2FF66]/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-[#E2FF66]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Clean Code Delivery</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">You get all the files, ready to deploy. No platform lock-in, no ongoing subscription required.</p>
+        </div>
+
+        <div class="card">
+          <div class="w-10 h-10 rounded-xl bg-[#E2FF66]/10 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-[#E2FF66]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Basic SEO</h3>
+          <p class="text-neutral-400 text-sm leading-relaxed">Proper meta titles, descriptions, and heading structure so search engines understand your site.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="py-16 px-6 lg:px-8 border-t border-[#1a1a1a]">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="section-label mb-4">Who This Is For</p>
+        <h2 class="text-4xl md:text-5xl font-black leading-tight mb-6">You're already good.<br/>Your site just<br/>doesn't show it.</h2>
+        <p class="text-neutral-400 leading-relaxed mb-6">The Site Refresh is built for established small businesses that have an existing website but know it's holding them back. You're not starting from scratch — you just need the design to catch up to the quality of your actual work.</p>
+        <a href="#book" class="btn-primary-lg">
+          Book a Free Consultation
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <div class="space-y-4">
+        <div class="card flex items-start gap-4">
+          <span class="text-[#E2FF66] text-xl font-black mt-0.5">✓</span>
+          <div>
+            <p class="font-semibold mb-1">You have an existing website</p>
+            <p class="text-neutral-400 text-sm leading-relaxed">Already on Squarespace, Wix, WordPress, or just plain HTML — doesn't matter.</p>
+          </div>
+        </div>
+        <div class="card flex items-start gap-4">
+          <span class="text-[#E2FF66] text-xl font-black mt-0.5">✓</span>
+          <div>
+            <p class="font-semibold mb-1">Your content is mostly good</p>
+            <p class="text-neutral-400 text-sm leading-relaxed">You're not looking for new pages or a full rebrand — just a look that feels premium.</p>
+          </div>
+        </div>
+        <div class="card flex items-start gap-4">
+          <span class="text-[#E2FF66] text-xl font-black mt-0.5">✓</span>
+          <div>
+            <p class="font-semibold mb-1">You want it done fast</p>
+            <p class="text-neutral-400 text-sm leading-relaxed">5 days from kickoff to a site you're proud to send to clients.</p>
+          </div>
+        </div>
+        <div class="card flex items-start gap-4">
+          <span class="text-[#E2FF66] text-xl font-black mt-0.5">✓</span>
+          <div>
+            <p class="font-semibold mb-1">Budget matters</p>
+            <p class="text-neutral-400 text-sm leading-relaxed">At $1,000 flat, this is the highest-ROI upgrade you can make to your online presence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="py-16 px-6 lg:px-8 border-t border-[#1a1a1a]">
+    <div class="max-w-7xl mx-auto">
+      <p class="section-label mb-10">How It Works</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-5 gap-4">
+        <div class="card text-center">
+          <div class="text-4xl font-black text-[#1e1e1e] mb-3">01</div>
+          <p class="font-bold mb-1">Free Call</p>
+          <p class="text-neutral-400 text-xs leading-relaxed">30 min to understand your business and current site.</p>
+        </div>
+        <div class="card text-center">
+          <div class="text-4xl font-black text-[#1e1e1e] mb-3">02</div>
+          <p class="font-bold mb-1">You Share Materials</p>
+          <p class="text-neutral-400 text-xs leading-relaxed">Send your current site URL, any logos, and photos you want used.</p>
+        </div>
+        <div class="card text-center">
+          <div class="text-4xl font-black text-[#1e1e1e] mb-3">03</div>
+          <p class="font-bold mb-1">We Build</p>
+          <p class="text-neutral-400 text-xs leading-relaxed">Full redesign delivered within 5 business days.</p>
+        </div>
+        <div class="card text-center">
+          <div class="text-4xl font-black text-[#1e1e1e] mb-3">04</div>
+          <p class="font-bold mb-1">You Review</p>
+          <p class="text-neutral-400 text-xs leading-relaxed">One round of revisions included. We make it right.</p>
+        </div>
+        <div class="card text-center">
+          <div class="text-4xl font-black text-[#1e1e1e] mb-3">05</div>
+          <p class="font-bold mb-1">Launch</p>
+          <p class="text-neutral-400 text-xs leading-relaxed">Files delivered, site goes live. 30-day support starts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section id="book" class="py-16 px-6 lg:px-8 border-t border-[#1a1a1a]">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="section-label mb-4">Book a Consultation</p>
+          <h2 class="text-4xl md:text-5xl font-black leading-tight mb-4">Let's get your site looking like it should.</h2>
+          <p class="text-neutral-400 leading-relaxed mb-6 max-w-sm">Free 30-minute call. No pressure, no pitch deck. Just an honest conversation about your site and what a refresh would look like.</p>
+          <div class="card inline-flex items-center gap-3">
+            <span class="text-xs font-semibold text-neutral-500 uppercase tracking-widest border border-[#2a2a2a] px-3 py-1 rounded-full">Selected Tier</span>
+            <span class="text-[#E2FF66] font-bold">Site Refresh — $1,000</span>
+          </div>
+        </div>
+
+        <form class="space-y-4" x-data="{ submitted: false }" @submit.prevent="submitted = true">
+          <div x-show="!submitted">
+            <input type="hidden" name="tier" value="Site Refresh — $1,000" />
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="text-xs text-neutral-500 uppercase tracking-widest block mb-2">Name</label>
+                <input type="text" placeholder="Jane Smith" required class="form-input" />
+              </div>
+              <div>
+                <label class="text-xs text-neutral-500 uppercase tracking-widest block mb-2">Email</label>
+                <input type="email" placeholder="jane@yourbusiness.com" required class="form-input" />
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="text-xs text-neutral-500 uppercase tracking-widest block mb-2">Business Name</label>
+              <input type="text" placeholder="Your business name" class="form-input" />
+            </div>
+            <div class="mb-4">
+              <label class="text-xs text-neutral-500 uppercase tracking-widest block mb-2">Current Website URL</label>
+              <input type="url" placeholder="https://yourbusiness.com" class="form-input" />
+            </div>
+            <div class="mb-6">
+              <label class="text-xs text-neutral-500 uppercase tracking-widest block mb-2">What's not working about your current site?</label>
+              <textarea placeholder="Tell us what feels off, what you wish it looked like, or what clients have said..." rows="4" class="form-input resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-primary-lg w-full justify-center">
+              Request Free Consultation
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+            <p class="text-neutral-600 text-xs text-center mt-3">We'll reach out within 24 hours to schedule your call.</p>
+          </div>
+          <div x-show="submitted" class="text-center py-16">
+            <div class="w-14 h-14 rounded-full bg-[#E2FF66]/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-[#E2FF66]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p class="text-white font-bold text-xl mb-2">You're on the list.</p>
+            <p class="text-neutral-400 text-sm">We'll reach out within 24 hours to schedule your free consultation.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-6 lg:px-8 border-t border-[#1a1a1a]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="index.html" class="text-white font-black text-xl tracking-tight">Vantage<span class="text-[#E2FF66]">.</span></a>
+      <div class="flex items-center gap-8">
+        <a href="index.html#services" class="nav-link text-xs">Services</a>
+        <a href="portfolio.html" class="nav-link text-xs">Portfolio</a>
+        <a href="index.html#contact" class="nav-link text-xs">Contact</a>
+      </div>
+      <p class="text-neutral-600 text-xs">© 2025 Vantage Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
