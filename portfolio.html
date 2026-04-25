@@ -172,12 +172,10 @@
           <img src="matteo-after.png" alt="Matteo &amp; Co. — After"
                class="absolute inset-0 w-full h-full object-cover object-top" />
 
-          <!-- BEFORE (clipped layer — reveals from left) -->
-          <div class="absolute inset-0 overflow-hidden" :style="`width:${pos}%`" style="z-index:1;">
-            <img src="matteo-before.png" alt="Matteo &amp; Co. — Before"
-                 class="absolute inset-0 h-full object-cover object-top"
-                 style="width:100vw; max-width:none;" />
-          </div>
+          <!-- BEFORE (clipped by clip-path so it stays full size) -->
+          <img src="matteo-before.png" alt="Matteo &amp; Co. — Before"
+               class="absolute inset-0 w-full h-full object-cover object-top"
+               :style="`clip-path: inset(0 ${100-pos}% 0 0); z-index:1;`" />
 
           <!-- Divider line + drag handle -->
           <div class="absolute top-0 bottom-0 pointer-events-none"
