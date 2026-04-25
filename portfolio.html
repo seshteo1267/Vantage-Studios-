@@ -168,40 +168,15 @@
         <!-- Slider -->
         <div class="relative rounded-2xl overflow-hidden shadow-lg select-none" style="aspect-ratio:16/9; background:#E5E5EA;">
 
-          <!-- AFTER (base layer — always fully visible) -->
-          <!--
-            TO ADD THE AFTER IMAGE:
-            1. Take a full-page screenshot of the new Matteo & Co. site
-            2. Save it as "matteo-after.jpg" in this folder (vantage-studio/)
-            3. The image will appear automatically
-          -->
-          <img src="matteo-after.jpg" alt="Matteo &amp; Co. — After"
-               class="absolute inset-0 w-full h-full object-cover object-top"
-               onerror="this.style.display='none'" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#E2FF66]"
-               style="z-index:0;"
-               x-show="pos >= 0">
-            <p class="font-black text-xl text-[#1D1D1F] mb-1">After</p>
-            <p class="text-sm font-medium text-[#1D1D1F] opacity-50">Save screenshot as matteo-after.jpg</p>
-          </div>
+          <!-- AFTER (base layer) -->
+          <img src="matteo-after.png" alt="Matteo &amp; Co. — After"
+               class="absolute inset-0 w-full h-full object-cover object-top" />
 
           <!-- BEFORE (clipped layer — reveals from left) -->
           <div class="absolute inset-0 overflow-hidden" :style="`width:${pos}%`" style="z-index:1;">
-            <!--
-              TO ADD THE BEFORE IMAGE:
-              1. Screenshot the old Squarespace site NOW before it goes down
-              2. Save it as "matteo-before.jpg" in this folder (vantage-studio/)
-              3. The image will appear automatically
-            -->
-            <img src="matteo-before.jpg" alt="Matteo &amp; Co. — Before"
+            <img src="matteo-before.png" alt="Matteo &amp; Co. — Before"
                  class="absolute inset-0 h-full object-cover object-top"
-                 style="width:100vw; max-width:none;"
-                 onerror="this.style.display='none'" />
-            <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#C7C7CC]"
-                 style="width:100vw;">
-              <p class="font-black text-xl text-[#1D1D1F] mb-1">Before</p>
-              <p class="text-sm font-medium text-[#1D1D1F] opacity-50">Save screenshot as matteo-before.jpg</p>
-            </div>
+                 style="width:100vw; max-width:none;" />
           </div>
 
           <!-- Divider line + drag handle -->
