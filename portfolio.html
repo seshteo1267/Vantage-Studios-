@@ -6,9 +6,24 @@
   <title>Portfolio — Vantage Studio</title>
   <meta name="description" content="Transformations, fresh launches, and every site we've built — real results for real small businesses by Vantage Studio." />
 
+  <link rel="canonical" href="https://vantagestudios.io/portfolio.html" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://vantagestudios.io/portfolio.html" />
+  <meta property="og:site_name"   content="Vantage Studio" />
+  <meta property="og:title"       content="Portfolio — Vantage Studio" />
+  <meta property="og:description" content="Transformations, fresh launches, and every site we've built — real results for real small businesses by Vantage Studio." />
+  <meta property="og:image"       content="https://vantagestudios.io/og-image.png" />
+
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Portfolio — Vantage Studio" />
+  <meta name="twitter:description" content="Transformations, fresh launches, and every site we've built — real results for real small businesses by Vantage Studio." />
+  <meta name="twitter:image"       content="https://vantagestudios.io/og-image.png" />
+
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
@@ -84,7 +99,7 @@
 <body x-data="{ mobileMenu: false }">
 
   <!-- ANIMATED BACKGROUND ORBS -->
-  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+  <div id="bg-container" class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
     <div class="orb-1 absolute" style="top:-8%;left:-6%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(199,199,204,0.14) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
     <div class="orb-2 absolute" style="top:40%;right:-10%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(0,122,255,0.06) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
   </div>
@@ -132,7 +147,7 @@
 <h1 class="text-5xl md:text-7xl font-black leading-[0.93] tracking-tight mb-6 text-[#1D1D1F] fade-up fade-up-delay-1">
         Real results.
       </h1>
-      <p class="text-[#6E6E73] text-lg max-w-lg leading-relaxed fade-up fade-up-delay-2">
+      <p class="text-[#3A3A3C] text-lg max-w-lg leading-relaxed fade-up fade-up-delay-2">
         Transformations, fresh launches, and measurable growth.
       </p>
     </div>
@@ -153,7 +168,7 @@
               <span class="text-xs text-[#AEAEB2]">Interior Styling</span>
             </div>
             <h2 class="text-2xl md:text-3xl font-black text-[#1D1D1F]">Matteo &amp; Co.</h2>
-            <p class="text-[#6E6E73] text-sm mt-1">Fine Home Furnishings — Flemington, NJ</p>
+            <p class="text-[#3A3A3C] text-sm mt-1">Fine Home Furnishings — Flemington, NJ</p>
           </div>
           <a href="../Matteo Design/index.html" target="_blank"
              class="inline-flex items-center gap-2 text-sm font-semibold text-[#1D1D1F] hover:text-[#6E6E73] transition-colors shrink-0">
@@ -289,11 +304,13 @@
         <a href="portfolio.html"      class="nav-link text-xs">Portfolio</a>
         <a href="contact.html"        class="nav-link text-xs">Contact</a>
       </div>
-      <p class="text-[#AEAEB2] text-xs">© 2025 Vantage Studio. All rights reserved.</p>
+      <p class="text-[#AEAEB2] text-xs">© <span class="copy-year">2025</span> Vantage Studio. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
+    document.querySelectorAll('.copy-year').forEach(el => el.textContent = new Date().getFullYear());
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -317,6 +334,42 @@
         });
       });
       list.addEventListener('mouseleave', () => { pill.style.opacity = '0'; });
+    })();
+
+    (function() {
+      const container = document.getElementById('bg-container');
+      if (!container) return;
+      [1, -1].forEach(pos => {
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 696 316');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+        svg.style.position = 'absolute';
+        svg.style.top = '0'; svg.style.left = '0';
+        svg.style.width = '100%'; svg.style.height = '100%';
+        container.appendChild(svg);
+        for (let i = 0; i < 36; i++) {
+          const d = `M-${380 - i*5*pos} -${189 + i*6}C-${380 - i*5*pos} -${189 + i*6} -${312 - i*5*pos} ${216 - i*6} ${152 - i*5*pos} ${343 - i*6}C${616 - i*5*pos} ${470 - i*6} ${684 - i*5*pos} ${875 - i*6} ${684 - i*5*pos} ${875 - i*6}`;
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', d);
+          path.setAttribute('stroke', '#007AFF');
+          path.setAttribute('stroke-width', String(0.3 + i * 0.01));
+          path.style.opacity = String(Math.min(0.02 + i * 0.003, 0.11));
+          svg.appendChild(path);
+          try {
+            const len = path.getTotalLength();
+            if (len > 0) {
+              const dashLen = len * 0.3;
+              path.style.strokeDasharray = `${dashLen} ${len - dashLen}`;
+              const dur = (20 + Math.random() * 10) * 1000;
+              path.animate(
+                [{ strokeDashoffset: 0 }, { strokeDashoffset: -len }],
+                { duration: dur, delay: -(Math.random() * dur), iterations: Infinity, easing: 'linear', fill: 'both' }
+              );
+            }
+          } catch(e) {}
+        }
+      });
     })();
   </script>
 

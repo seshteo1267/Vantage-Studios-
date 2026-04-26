@@ -3,12 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Site Refresh — $1,000 | Vantage Studio</title>
+  <title>Site Refresh — $500 | Vantage Studio</title>
   <meta name="description" content="Your existing site, redesigned to look premium. Same pages, serious visual upgrade. 5-day turnaround." />
+
+  <link rel="canonical" href="https://vantagestudios.io/tier-refresh.html" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://vantagestudios.io/tier-refresh.html" />
+  <meta property="og:site_name"   content="Vantage Studio" />
+  <meta property="og:title"       content="Site Refresh — $500 | Vantage Studio" />
+  <meta property="og:description" content="Your existing site, redesigned to look premium. Same pages, serious visual upgrade. 5-day turnaround." />
+  <meta property="og:image"       content="https://vantagestudios.io/og-image.png" />
+
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Site Refresh — $500 | Vantage Studio" />
+  <meta name="twitter:description" content="Your existing site, redesigned to look premium. Same pages, serious visual upgrade. 5-day turnaround." />
+  <meta name="twitter:image"       content="https://vantagestudios.io/og-image.png" />
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
@@ -31,7 +46,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="index.html" class="text-white font-black text-xl tracking-tight">Vantage<span class="text-[#E2FF66]">.</span></a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#services" class="text-white font-semibold text-sm">Services</a>
         <a href="index.html#how-it-works" class="nav-link">How It Works</a>
         <a href="portfolio.html" class="nav-link">Portfolio</a>
         <a href="index.html#contact" class="nav-link">Contact</a>
@@ -43,7 +58,7 @@
       </button>
     </div>
     <div x-show="mobileMenu" x-transition class="md:hidden border-t border-[#1a1a1a] bg-[#080808] px-6 py-5 flex flex-col gap-5">
-      <a href="index.html#services" @click="mobileMenu = false" class="nav-link text-base">Services</a>
+      <a href="index.html#services" @click="mobileMenu = false" class="text-white font-semibold text-base">Services</a>
       <a href="index.html#how-it-works" @click="mobileMenu = false" class="nav-link text-base">How It Works</a>
       <a href="portfolio.html" class="nav-link text-base">Portfolio</a>
       <a href="index.html#contact" @click="mobileMenu = false" class="nav-link text-base">Contact</a>
@@ -66,12 +81,12 @@
           </h1>
         </div>
         <div class="text-right">
-          <p class="text-5xl md:text-6xl font-black text-white">$1,000</p>
+          <p class="text-5xl md:text-6xl font-black text-white">$500</p>
           <p class="text-neutral-500 text-sm mt-1">Flat rate. No surprises.</p>
         </div>
       </div>
       <p class="text-neutral-400 text-lg max-w-2xl leading-relaxed">
-        You already have a site. It just doesn't look the way your business does in real life. We take your existing pages and rebuild them into something that actually reflects your quality — without changing your content or adding complexity.
+        You already have a site. It just doesn't look the way your business does in real life. We take your existing pages and rebuild them into something that actually reflects your quality, without changing your content or adding complexity.
       </p>
     </div>
   </section>
@@ -172,7 +187,7 @@
           <span class="text-[#E2FF66] text-xl font-black mt-0.5">✓</span>
           <div>
             <p class="font-semibold mb-1">Budget matters</p>
-            <p class="text-neutral-400 text-sm leading-relaxed">At $1,000 flat, this is the highest-ROI upgrade you can make to your online presence.</p>
+            <p class="text-neutral-400 text-sm leading-relaxed">At $500 flat, this is the highest-ROI upgrade you can make to your online presence.</p>
           </div>
         </div>
       </div>
@@ -223,13 +238,13 @@
           <p class="text-neutral-400 leading-relaxed mb-6 max-w-sm">Free 30-minute call. No pressure, no pitch deck. Just an honest conversation about your site and what a refresh would look like.</p>
           <div class="card inline-flex items-center gap-3">
             <span class="text-xs font-semibold text-neutral-500 uppercase tracking-widest border border-[#2a2a2a] px-3 py-1 rounded-full">Selected Tier</span>
-            <span class="text-[#E2FF66] font-bold">Site Refresh — $1,000</span>
+            <span class="text-[#E2FF66] font-bold">Site Refresh — $500</span>
           </div>
         </div>
 
         <form class="space-y-4" x-data="{ submitted: false }" @submit.prevent="submitted = true">
           <div x-show="!submitted">
-            <input type="hidden" name="tier" value="Site Refresh — $1,000" />
+            <input type="hidden" name="tier" value="Site Refresh — $500" />
             <div class="grid sm:grid-cols-2 gap-4 mb-4">
               <div>
                 <label class="text-xs text-neutral-500 uppercase tracking-widest block mb-2">Name</label>
@@ -270,6 +285,10 @@
     </div>
   </section>
 
+  <script>
+    document.querySelectorAll('.copy-year').forEach(el => el.textContent = new Date().getFullYear());
+  </script>
+
   <!-- FOOTER -->
   <footer class="py-8 px-6 lg:px-8 border-t border-[#1a1a1a]">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -279,7 +298,7 @@
         <a href="portfolio.html" class="nav-link text-xs">Portfolio</a>
         <a href="index.html#contact" class="nav-link text-xs">Contact</a>
       </div>
-      <p class="text-neutral-600 text-xs">© 2025 Vantage Studio. All rights reserved.</p>
+      <p class="text-neutral-600 text-xs">© <span class="copy-year">2025</span> Vantage Studio. All rights reserved.</p>
     </div>
   </footer>
 

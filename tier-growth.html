@@ -6,9 +6,24 @@
   <title>Growth Site — $2,500–$3,500 | Vantage Studio</title>
   <meta name="description" content="A fully custom 8-page site with strong copywriting, testimonials, and an optimized inquiry flow. 10-day turnaround." />
 
+  <link rel="canonical" href="https://vantagestudios.io/tier-growth.html" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://vantagestudios.io/tier-growth.html" />
+  <meta property="og:site_name"   content="Vantage Studio" />
+  <meta property="og:title"       content="Growth Site — $2,500–$3,500 | Vantage Studio" />
+  <meta property="og:description" content="A fully custom 8-page site with strong copywriting, testimonials, and an optimized inquiry flow. 10-day turnaround." />
+  <meta property="og:image"       content="https://vantagestudios.io/og-image.png" />
+
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Growth Site — $2,500–$3,500 | Vantage Studio" />
+  <meta name="twitter:description" content="A fully custom 8-page site with strong copywriting, testimonials, and an optimized inquiry flow. 10-day turnaround." />
+  <meta name="twitter:image"       content="https://vantagestudios.io/og-image.png" />
+
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet" />
@@ -31,7 +46,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="index.html" class="text-white font-black text-xl tracking-tight">Vantage<span class="text-[#E2FF66]">.</span></a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#services" class="text-white font-semibold text-sm">Services</a>
         <a href="index.html#how-it-works" class="nav-link">How It Works</a>
         <a href="portfolio.html" class="nav-link">Portfolio</a>
         <a href="index.html#contact" class="nav-link">Contact</a>
@@ -43,7 +58,7 @@
       </button>
     </div>
     <div x-show="mobileMenu" x-transition class="md:hidden border-t border-[#1a1a1a] bg-[#080808] px-6 py-5 flex flex-col gap-5">
-      <a href="index.html#services" @click="mobileMenu = false" class="nav-link text-base">Services</a>
+      <a href="index.html#services" @click="mobileMenu = false" class="text-white font-semibold text-base">Services</a>
       <a href="index.html#how-it-works" @click="mobileMenu = false" class="nav-link text-base">How It Works</a>
       <a href="portfolio.html" class="nav-link text-base">Portfolio</a>
       <a href="index.html#contact" @click="mobileMenu = false" class="nav-link text-base">Contact</a>
@@ -74,7 +89,7 @@
         </div>
       </div>
       <p class="text-neutral-400 text-lg max-w-2xl leading-relaxed">
-        The Growth site is built for established businesses that need more than a presence — they need a site that actively works to win clients. Strong copy, social proof, and an optimized inquiry flow that turns visitors into booked calls.
+        The Growth site is built for established businesses that need more than a presence. They need a site that actively works to win clients. Strong copy, social proof, and an optimized inquiry flow that turns visitors into booked calls.
       </p>
     </div>
   </section>
@@ -143,7 +158,7 @@
       <div>
         <p class="section-label mb-4">Who This Is For</p>
         <h2 class="text-4xl md:text-5xl font-black leading-tight mb-6">For businesses ready to<br/>stop blending in.</h2>
-        <p class="text-neutral-400 leading-relaxed mb-6">You've got traction. You're getting referrals. But your site doesn't do your business justice — and better clients are checking it before they call. The Growth site changes that.</p>
+        <p class="text-neutral-400 leading-relaxed mb-6">You've got traction. You're getting referrals. But your online presence doesn't do your business justice — whether that's an underperforming site or no site at all. Better clients are checking before they call. The Growth site changes that.</p>
         <a href="#book" class="btn-primary-lg">
           Book a Free Consultation
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -261,6 +276,10 @@
     </div>
   </section>
 
+  <script>
+    document.querySelectorAll('.copy-year').forEach(el => el.textContent = new Date().getFullYear());
+  </script>
+
   <!-- FOOTER -->
   <footer class="py-8 px-6 lg:px-8 border-t border-[#1a1a1a]">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -270,7 +289,7 @@
         <a href="portfolio.html" class="nav-link text-xs">Portfolio</a>
         <a href="index.html#contact" class="nav-link text-xs">Contact</a>
       </div>
-      <p class="text-neutral-600 text-xs">© 2025 Vantage Studio. All rights reserved.</p>
+      <p class="text-neutral-600 text-xs">© <span class="copy-year">2025</span> Vantage Studio. All rights reserved.</p>
     </div>
   </footer>
 
