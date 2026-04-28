@@ -1,8 +1,9 @@
 (function () {
+  const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
+  if (isMobile) return;
 
   // Site background: #F5F5F7 = rgb(245, 245, 247)
   const BG_R = 245, BG_G = 245, BG_B = 247;
-  const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
 
   class Vector2D {
     constructor(x, y) { this.x = x; this.y = y; }
