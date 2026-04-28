@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Vantage Studio</title>
-  <meta name="description" content="Transformations, fresh launches, and every site we've built — real results for real small businesses by Vantage Studio." />
+  <title>Portfolio | Vantage Studio</title>
+  <meta name="description" content="Transformations, fresh launches, and every site we've built | real results for real small businesses by Vantage Studio." />
 
   <link rel="canonical" href="https://vantagestudios.io/portfolio.html" />
 
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://vantagestudios.io/portfolio.html" />
   <meta property="og:site_name"   content="Vantage Studio" />
-  <meta property="og:title"       content="Portfolio — Vantage Studio" />
-  <meta property="og:description" content="Transformations, fresh launches, and every site we've built — real results for real small businesses by Vantage Studio." />
+  <meta property="og:title"       content="Portfolio | Vantage Studio" />
+  <meta property="og:description" content="Transformations, fresh launches, and every site we've built | real results for real small businesses by Vantage Studio." />
   <meta property="og:image"       content="https://vantagestudios.io/og-image.png" />
 
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Portfolio — Vantage Studio" />
-  <meta name="twitter:description" content="Transformations, fresh launches, and every site we've built — real results for real small businesses by Vantage Studio." />
+  <meta name="twitter:title"       content="Portfolio | Vantage Studio" />
+  <meta name="twitter:description" content="Transformations, fresh launches, and every site we've built | real results for real small businesses by Vantage Studio." />
   <meta name="twitter:image"       content="https://vantagestudios.io/og-image.png" />
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -82,7 +82,7 @@
       background-clip: text;
     }
 
-    /* Before/after slider — invisible range input covers the whole image */
+    /* Before/after slider, invisible range input covers the whole image */
     .slider-range {
       -webkit-appearance: none;
       appearance: none;
@@ -100,12 +100,12 @@
 
   <!-- ANIMATED BACKGROUND ORBS -->
   <div id="bg-container" class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
-    <div class="orb-1 absolute" style="top:-8%;left:-6%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(199,199,204,0.14) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
-    <div class="orb-2 absolute" style="top:40%;right:-10%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(0,122,255,0.06) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
+    <div class="orb-1 absolute hidden md:block" style="top:-8%;left:-6%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(199,199,204,0.14) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
+    <div class="orb-2 absolute hidden md:block" style="top:40%;right:-10%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(0,122,255,0.06) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
   </div>
 
   <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[rgba(245,245,247,0.82)] backdrop-blur-2xl border-b border-[rgba(0,0,0,0.07)]">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[rgba(245,245,247,0.97)] border-b border-[rgba(0,0,0,0.07)]">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
 
       <a href="index.html" class="font-black text-xl tracking-tight text-[#1D1D1F]">
@@ -132,7 +132,7 @@
       </button>
     </div>
 
-    <div x-show="mobileMenu" x-transition class="md:hidden border-t border-[rgba(0,0,0,0.07)] bg-[rgba(245,245,247,0.95)] backdrop-blur-xl px-6 py-5 flex flex-col gap-5">
+    <div x-show="mobileMenu" x-transition class="md:hidden border-t border-[rgba(0,0,0,0.07)] bg-[rgba(245,245,247,0.99)] px-6 py-5 flex flex-col gap-5">
       <a href="index.html#services"     @click="mobileMenu = false" class="nav-link text-base">Services</a>
       <a href="index.html#how-it-works" @click="mobileMenu = false" class="nav-link text-base">How It Works</a>
       <a href="portfolio.html"                                       class="text-[#1D1D1F] text-base font-semibold">Portfolio</a>
@@ -168,9 +168,9 @@
               <span class="text-xs text-[#AEAEB2]">Interior Styling</span>
             </div>
             <h2 class="text-2xl md:text-3xl font-black text-[#1D1D1F]">Matteo &amp; Co.</h2>
-            <p class="text-[#3A3A3C] text-sm mt-1">Fine Home Furnishings — Flemington, NJ</p>
+            <p class="text-[#3A3A3C] text-sm mt-1">Fine Home Furnishings, Flemington, NJ</p>
           </div>
-          <a href="../Matteo Design/index.html" target="_blank"
+          <a href="https://matteoco.com" target="_blank"
              class="inline-flex items-center gap-2 text-sm font-semibold text-[#1D1D1F] hover:text-[#6E6E73] transition-colors shrink-0">
             View live site
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -183,12 +183,12 @@
         <div class="relative rounded-2xl overflow-hidden shadow-lg select-none" style="aspect-ratio:16/9; background:#E5E5EA;">
 
           <!-- AFTER (base layer) -->
-          <img src="matteo-after.png" alt="Matteo &amp; Co. — After"
-               class="absolute inset-0 w-full h-full object-cover object-top" />
+          <img src="matteo-after.jpg" alt="Matteo &amp; Co., After"
+               class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
 
           <!-- BEFORE (clipped by clip-path so it stays full size) -->
-          <img src="matteo-before.png" alt="Matteo &amp; Co. — Before"
-               class="absolute inset-0 w-full h-full object-cover object-top"
+          <img src="matteo-before.jpg" alt="Matteo &amp; Co., Before"
+               class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy"
                :style="`clip-path: inset(0 ${100-pos}% 0 0); z-index:1;`" />
 
           <!-- Divider line + drag handle -->
@@ -238,7 +238,7 @@
             <span class="text-xs font-semibold text-[#AEAEB2] uppercase tracking-widest border border-[#E5E5EA] px-3 py-1 rounded-full">Coming Soon</span>
           </div>
           <h2 class="text-2xl md:text-3xl font-black text-[#AEAEB2]">Next Project</h2>
-          <p class="text-[#AEAEB2] text-sm mt-1">In progress — check back soon</p>
+          <p class="text-[#AEAEB2] text-sm mt-1">In progress, check back soon</p>
         </div>
 
         <div class="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.06)] bg-white shadow-sm" style="aspect-ratio:16/9;">
@@ -252,17 +252,13 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-4 mt-5 opacity-30">
+        <div class="grid grid-cols-2 gap-4 mt-5 opacity-30">
           <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
             <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Tier</p>
             <p class="font-bold text-[#1D1D1F] text-sm">—</p>
           </div>
           <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
             <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Turnaround</p>
-            <p class="font-bold text-[#1D1D1F] text-sm">—</p>
-          </div>
-          <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
-            <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Investment</p>
             <p class="font-bold text-[#1D1D1F] text-sm">—</p>
           </div>
         </div>
