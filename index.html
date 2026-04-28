@@ -28,7 +28,6 @@
     "url": "https://vantagestudios.io",
     "email": "info@vantagestudios.io",
     "description": "Premium, conversion-focused websites for established small businesses. Fast turnaround, no agency drag.",
-    "priceRange": "$500–$3,500",
     "serviceType": "Web Design",
     "areaServed": "United States",
     "sameAs": []
@@ -37,6 +36,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -178,6 +178,11 @@
 </head>
 <body x-data="{ mobileMenu: false }">
 
+  <!-- SPLASH SCREEN -->
+  <div id="vs-splash" style="position:fixed;inset:0;z-index:9999;background:black;overflow:hidden;">
+    <canvas id="vs-splash-canvas" style="position:absolute;inset:0;"></canvas>
+  </div>
+
   <!-- ANIMATED BACKGROUND ORBS (fixed, behind everything) -->
   <div id="bg-container" class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
     <div class="orb-1 absolute hidden md:block" style="top:-8%;left:-6%;width:700px;height:700px;background:radial-gradient(ellipse,rgba(199,199,204,0.14) 0%,transparent 68%);border-radius:50%;filter:blur(50px);"></div>
@@ -297,7 +302,7 @@
               </svg>
               <div>
                 <p class="font-semibold text-white mb-0.5">Every site is built by us, in-house</p>
-                <p class="text-sm text-[rgba(255,255,255,0.68)] leading-relaxed">No offshore contractors. No templates handed off to a stranger. You get the person who actually built it.</p>
+                <p class="hidden md:block text-sm text-[rgba(255,255,255,0.68)] leading-relaxed">No offshore contractors. No templates handed off to a stranger. You get the person who actually built it.</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
@@ -306,7 +311,7 @@
               </svg>
               <div>
                 <p class="font-semibold text-white mb-0.5">Direct communication, zero middlemen</p>
-                <p class="text-sm text-[rgba(255,255,255,0.68)] leading-relaxed">You talk directly to the designer and developer. Feedback lands instantly and changes happen fast.</p>
+                <p class="hidden md:block text-sm text-[rgba(255,255,255,0.68)] leading-relaxed">You talk directly to the designer and developer. Feedback lands instantly and changes happen fast.</p>
               </div>
             </div>
             <div class="flex gap-4 items-start">
@@ -315,7 +320,7 @@
               </svg>
               <div>
                 <p class="font-semibold text-white mb-0.5">Consistent quality, every time</p>
-                <p class="text-sm text-[rgba(255,255,255,0.68)] leading-relaxed">The same eye, the same standard, every project. Not whoever the agency assigned to your ticket.</p>
+                <p class="hidden md:block text-sm text-[rgba(255,255,255,0.68)] leading-relaxed">The same eye, the same standard, every project. Not whoever the agency assigned to your ticket.</p>
               </div>
             </div>
           </div>
@@ -347,7 +352,6 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </div>
-          <p class="text-2xl font-black text-[#1D1D1F] mb-1">$500</p>
           <h3 class="text-xl font-bold mb-2 text-[#1D1D1F]">Elevate what you have.</h3>
           <p class="text-[#3A3A3C] text-sm leading-relaxed mb-6">Your existing pages, redesigned to look high-end. No new pages, just a serious visual upgrade.</p>
           <ul class="space-y-2.5 text-sm text-[#3A3A3C]">
@@ -367,7 +371,6 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </div>
-          <p class="text-2xl font-black text-[#1D1D1F] mb-1">$1,500</p>
           <h3 class="text-xl font-bold mb-2 text-[#1D1D1F]">Get online.</h3>
           <p class="text-[#3A3A3C] text-sm leading-relaxed mb-6">A clean, professional site that makes you look credible and converts visitors into calls.</p>
           <ul class="space-y-2.5 text-sm text-[#3A3A3C]">
@@ -392,7 +395,6 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </div>
-          <p class="text-2xl font-black text-[#1D1D1F] mb-1">$2,500–$3,500</p>
           <h3 class="text-xl font-bold mb-2 text-[#1D1D1F]">Outgrow your competition.</h3>
           <p class="text-[#3A3A3C] text-sm leading-relaxed mb-6">A fully custom 8-page site with strong copywriting, testimonials, and an optimized inquiry flow.</p>
           <ul class="space-y-2.5 text-sm text-[#3A3A3C]">
@@ -696,6 +698,7 @@
       });
     });
   </script>
+  <script src="splash.js"></script>
 
 </body>
 </html>
