@@ -94,10 +94,51 @@
       for (let i = 0; i < starCount; i++) this.stars.push(new Star(this.cameraZ, this.cameraTravelDistance));
 
 
+      this.startTime = Date.now();
+      this.textParticles = [];
+      // Init particles after fonts load so Inter renders correctly
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => this.initTextParticles());
+
       this.tween = gsap.to(this, {
         time: 1, duration: 5, repeat: -1, ease: 'none',
         onUpdate: () => this.render()
       });
+    }
+
+    initTextParticles() {
+      const fontSize = isMobile ? 28 : 44;
+      const cw = 620, ch = 110;
+      const oc = document.createElement('canvas');
+      oc.width = cw; oc.height = ch;
+      const ox = oc.getContext('2d');
+      ox.font = `800 ${fontSize}px Inter, -apple-system, BlinkMacSystemFont, sans-serif`;
+      ox.textAlign = 'center';
+      ox.textBaseline = 'middle';
+      ox.fillStyle = 'white';
+      ox.fillText('Vantage Studios', cw / 2, ch / 2);
+      const data = ox.getImageData(0, 0, cw, ch).data;
+      const step = isMobile ? 3 : 2;
+      this.textParticles = [];
+      for (let y = 0; y < ch; y += step) {
+        for (let x = 0; x < cw; x += step) {
+          if (data[(y * cw + x) * 4 + 3] > 100) {
+            const outAngle = Math.random() * Math.PI * 2;
+            const inAngle  = Math.random() * Math.PI * 2;
+            const inDist   = 20 + Math.random() * 180; // start near spiral center
+            this.textParticles.push({
+              x: x - cw / 2,   // target (text) position
+              y: y - ch / 2,
+              sx: Math.cos(inAngle) * inDist, // start scattered near center
+              sy: Math.sin(inAngle) * inDist,
+              vx: Math.cos(outAngle) * (60 + Math.random() * 160), // burst direction
+              vy: Math.sin(outAngle) * (60 + Math.random() * 160),
+              size: 0.7 + Math.random() * 1.3,
+              phase: Math.random() * Math.PI * 2,
+              speed: 2 + Math.random() * 5,
+            });
+          }
+        }
+      }
     }
 
     ease(p, g) { return p < 0.5 ? 0.5 * Math.pow(2*p,g) : 1 - 0.5 * Math.pow(2*(1-p),g); }
@@ -146,10 +187,10 @@
       ctx.fillStyle = `rgb(${r},${g},${b})`;
       ctx.fillRect(0, 0, this.size, this.size);
 
+      const globalScale = isMobile ? 1.0 : 1.25;
       ctx.save();
       ctx.translate(this.size/2, this.size/2);
-      // Burst: scale stars outward from center
-      ctx.scale(this.expandScale, this.expandScale);
+      ctx.scale(this.expandScale * globalScale, this.expandScale * globalScale);
 
       const t1=this.constrain(this.map(this.time,0,this.changeEventTime+0.25,0,1),0,1);
       const t2=this.constrain(this.map(this.time,this.changeEventTime,1,0,1),0,1);
@@ -180,6 +221,32 @@
         this.showProjectedDot(new Vector3D(0,dy,this.cameraTravelDistance),2.5);
       }
       ctx.restore();
+
+      // Vantage Studios — blue sparkle particles sampled from text shape
+      const elapsed = (Date.now() - this.startTime) / 1000;
+      const burstTotal = isMobile ? 2.5 : 3.0;
+      const textAlpha = this.constrain(this.map(elapsed, 0.8, 2.2, 0, 1), 0, 1)
+                      * (1 - Math.pow(this.bgProgress, 2));
+      if (textAlpha > 0 && this.textParticles.length > 0) {
+        const baseScale = 0.7 + Math.max(0, elapsed - 0.8) * 0.25;
+        const totalScale = baseScale + this.bgProgress * 8;
+        const burst = this.bgProgress * 2.2;
+        ctx.save();
+        ctx.translate(this.size / 2, this.size / 2);
+        for (const p of this.textParticles) {
+          const twinkle = 0.35 + 0.65 * Math.abs(Math.sin(elapsed * p.speed + p.phase));
+          const px = (p.x + p.vx * burst) * totalScale * globalScale;
+          const py = (p.y + p.vy * burst) * totalScale * globalScale;
+          const r = p.size * (1 + this.bgProgress * 1.5);
+          ctx.globalAlpha = textAlpha * twinkle;
+          ctx.fillStyle = '#007AFF';
+          ctx.beginPath();
+          ctx.arc(px, py, r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        ctx.restore();
+      }
     }
 
     burst(onComplete) {
@@ -187,7 +254,7 @@
         bgProgress: 1,
         expandScale: 4,
         duration: 1.3,
-        ease: 'power2.in',
+        ease: 'power1.inOut',
         onComplete
       });
     }
@@ -215,7 +282,7 @@
     const controller = new AnimationController(canvas, ctx, dpr, Math.max(window.innerWidth, window.innerHeight));
 
     // Auto-burst: faster on mobile
-    const burstDelay = isMobile ? 2500 : 3500;
+    const burstDelay = isMobile ? 2500 : 3000;
     setTimeout(() => {
       controller.burst(() => {
         // Stars have filled screen with site bg color — fade overlay out
