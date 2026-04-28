@@ -82,6 +82,20 @@
       background-clip: text;
     }
 
+    @keyframes live-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+      50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+    }
+    .live-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: live-pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
     /* Before/after slider, invisible range input covers the whole image */
     .slider-range {
       -webkit-appearance: none;
@@ -168,10 +182,11 @@
               <span class="text-xs text-[#AEAEB2]">Interior Styling</span>
             </div>
             <h2 class="text-2xl md:text-3xl font-black text-[#1D1D1F]">Matteo &amp; Co.</h2>
-            <p class="text-[#3A3A3C] text-sm mt-1">Fine Home Furnishings, Flemington, NJ</p>
+            <p class="text-[#3A3A3C] text-sm mt-1">Fine Home Furnishings - Pennington, New Jersey</p>
           </div>
           <a href="https://matteoco.com" target="_blank"
              class="inline-flex items-center gap-2 text-sm font-semibold text-[#1D1D1F] hover:text-[#6E6E73] transition-colors shrink-0">
+            <span class="live-dot"></span>
             View live site
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
@@ -230,36 +245,44 @@
       </div>
       <!-- ─── END CASE STUDY 1 ─── -->
 
-      <!-- ─── CASE STUDY 2: Placeholder ─── -->
+      <!-- ─── CASE STUDY 2: Crestline Renovations ─── -->
       <div class="fade-up fade-up-delay-1">
 
-        <div class="mb-6">
-          <div class="flex items-center gap-3 mb-2">
-            <span class="text-xs font-semibold text-[#AEAEB2] uppercase tracking-widest border border-[#E5E5EA] px-3 py-1 rounded-full">Coming Soon</span>
-          </div>
-          <h2 class="text-2xl md:text-3xl font-black text-[#AEAEB2]">Next Project</h2>
-          <p class="text-[#AEAEB2] text-sm mt-1">In progress, check back soon</p>
-        </div>
-
-        <div class="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.06)] bg-white shadow-sm" style="aspect-ratio:16/9;">
-          <div class="w-full h-full flex flex-col items-center justify-center gap-3">
-            <div class="w-12 h-12 rounded-2xl bg-[#F5F5F7] flex items-center justify-center">
-              <svg class="w-5 h-5 text-[#AEAEB2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-              </svg>
+        <!-- Header row -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-xs font-semibold text-[#6E6E73] uppercase tracking-widest border border-[#D2D2D7] px-3 py-1 rounded-full">Launch</span>
+              <span class="text-xs text-[#AEAEB2]">Home Services</span>
             </div>
-            <p class="text-[#AEAEB2] text-sm font-medium">Coming soon</p>
+            <h2 class="text-2xl md:text-3xl font-black text-[#1D1D1F]">Crestline Renovations</h2>
+            <p class="text-[#3A3A3C] text-sm mt-1">Premium Kitchen &amp; Bath Remodeling - Denver, Colorado</p>
           </div>
+          <a href="https://crestlinerenovations.netlify.app" target="_blank"
+             class="inline-flex items-center gap-2 text-sm font-semibold text-[#1D1D1F] hover:text-[#6E6E73] transition-colors shrink-0">
+            <span class="live-dot"></span>
+            View live site
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mt-5 opacity-30">
+        <!-- Site preview -->
+        <div class="relative rounded-2xl overflow-hidden shadow-lg" style="aspect-ratio:16/9; background:#1C2B3A;">
+          <img src="crestline demo1.png" alt="Crestline Renovations website"
+               class="w-full h-full object-cover object-top" loading="lazy" />
+        </div>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-2 gap-4 mt-5">
           <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
             <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Tier</p>
-            <p class="font-bold text-[#1D1D1F] text-sm">—</p>
+            <p class="font-bold text-[#1D1D1F] text-sm">Launch</p>
           </div>
           <div class="bg-white border border-[rgba(0,0,0,0.06)] rounded-xl px-4 py-4 text-center shadow-sm">
             <p class="text-xs text-[#6E6E73] uppercase tracking-widest mb-1">Turnaround</p>
-            <p class="font-bold text-[#1D1D1F] text-sm">—</p>
+            <p class="font-bold text-[#1D1D1F] text-sm">7 Days</p>
           </div>
         </div>
 

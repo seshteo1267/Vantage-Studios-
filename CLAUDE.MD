@@ -26,6 +26,24 @@ pricing tiers, and execution plan.
 - Vanilla JavaScript + Alpine.js v3
 - Lucide icons
 
+## Text Visibility Rules (Non-Negotiable)
+
+- Text must always be clearly readable — no exceptions
+- Never place text directly on a photo without a dark 
+  overlay (minimum opacity 0.5) between the image and text
+- Never use light text on light backgrounds
+- Never use dark text on dark backgrounds
+- Always test contrast — body text minimum 4.5:1 ratio, 
+  headings minimum 3:1 (WCAG AA)
+- Hero sections with background images must have a 
+  semi-transparent overlay before any text is placed
+- Gradient overlays are preferred over flat overlays 
+  for a more premium feel
+- When in doubt always default to white text on dark 
+  overlay or dark text on white/light background
+- Never use opacity on text itself to create contrast 
+  — always adjust the background instead
+
 **Advanced (only when needed):**
 - React + shadcn/ui + Tailwind
 - Next.js 15 (App Router)
