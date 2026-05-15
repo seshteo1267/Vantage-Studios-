@@ -36,7 +36,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -178,10 +177,6 @@
 </head>
 <body x-data="{ mobileMenu: false }">
 
-  <!-- SPLASH SCREEN -->
-  <div id="vs-splash" style="position:fixed;inset:0;z-index:9999;background:black;overflow:hidden;">
-    <canvas id="vs-splash-canvas" style="position:absolute;inset:0;"></canvas>
-  </div>
 
   <!-- ANIMATED BACKGROUND ORBS (fixed, behind everything) -->
   <div id="bg-container" class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
@@ -698,7 +693,6 @@
       });
     });
   </script>
-  <script src="splash.js"></script>
 
 </body>
 </html>
