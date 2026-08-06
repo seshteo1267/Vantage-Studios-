@@ -26,7 +26,7 @@ window.ARF_ANALYTICS = {
   provider: 'cloudflare',
 
   /* ⬇⬇⬇  PASTE THE CLOUDFLARE WEB ANALYTICS TOKEN HERE  ⬇⬇⬇ */
-  cloudflareToken: '',
+  cloudflareToken: '449313a4fd484847bf3ea1fbf6415593',
   /* ⬆⬆⬆  that is the only required change  ⬆⬆⬆ */
 
   // Only used if provider is switched to 'ga4'
@@ -48,7 +48,9 @@ window.ARF_ANALYTICS = {
 
   if (c.provider === 'cloudflare' && c.cloudflareToken) {
     var s = document.createElement('script');
-    s.defer = true;
+    // Cloudflare issues this snippet as type="module"; module scripts are
+    // deferred by default, so this matches their beacon exactly.
+    s.type = 'module';
     s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
     s.setAttribute('data-cf-beacon', JSON.stringify({ token: c.cloudflareToken }));
     document.head.appendChild(s);
