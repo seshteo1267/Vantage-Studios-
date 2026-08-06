@@ -1,0 +1,18 @@
+# Local Netlify folder
+.netlify
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Claude Code config — must never sit inside a Netlify publish directory
+.claude/settings.local.json
+**/.claude/settings.local.json
+
+# Internal working docs and client source assets live in _client-docs/,
+# which is deliberately OUTSIDE any site publish directory so it can never
+# be deployed. Nothing internal belongs inside a client site folder.
+
+# Internal working docs, client briefs and original source assets.
+# These stay on disk but must never reach GitHub or Netlify.
+_client-docs/

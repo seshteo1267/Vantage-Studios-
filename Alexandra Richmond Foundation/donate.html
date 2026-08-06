@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate — The Alexandra Richmond Foundation</title>
+<meta name="description" content="Support esophageal cancer awareness and research. Every gift funds the mission in Alexandra's memory.">
+
+<!-- ===== LINK PREVIEW (Open Graph / iMessage / social) =====
+     Live URL: https://alexandrarichmondfoundation.org -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Alexandra Richmond Foundation">
+<meta property="og:title" content="Donate — The Alexandra Richmond Foundation">
+<meta property="og:description" content="Every gift funds esophageal cancer research and awareness in Alexandra's memory.">
+<meta property="og:url" content="https://alexandrarichmondfoundation.org/donate.html">
+<meta property="og:image" content="https://alexandrarichmondfoundation.org/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Alexandra Richmond Foundation — turning loss into early detection and hope.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Donate — The Alexandra Richmond Foundation">
+<meta name="twitter:description" content="Every gift funds esophageal cancer research and awareness in Alexandra's memory.">
+<meta name="twitter:image" content="https://alexandrarichmondfoundation.org/share.jpg">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#33285a">
+<link rel="canonical" href="https://alexandrarichmondfoundation.org/donate.html">
+
+<link rel="stylesheet" href="/fonts.css">
+<style>
+  .skip-link{position:absolute;left:8px;top:-60px;background:var(--indigo);color:var(--cream);padding:10px 18px;border-radius:8px;z-index:200;font-weight:700;transition:top .2s}
+  .skip-link:focus{top:8px}
+  :root{
+    --cream:#f7f4ee;
+    --cream-deep:#efe9df;
+    --ink:#1b1d2e;
+    --ink-soft:#3a3d52;
+    --ink-mute:#6b6e85;
+    --indigo:#33285a;
+    --indigo-deep:#241c43;
+    --peri:#a68cd4;
+    --peri-deep:#6a4fa8;
+    --line:rgba(27,29,46,.13);
+    --line-soft:rgba(27,29,46,.07);
+    --sh-rest:0 2px 4px -2px rgba(27,29,46,.08),0 12px 30px -18px rgba(27,29,46,.18);
+    --sh-hover:0 8px 16px -8px rgba(27,29,46,.16),0 30px 60px -28px rgba(27,29,46,.42);
+    --sh-frame:0 30px 70px -34px rgba(27,29,46,.55);
+    --sh-btn:0 12px 26px -12px rgba(51,40,90,.55);
+    --r-xs:6px; --r-sm:12px; --r:16px; --r-lg:22px; --r-xl:28px; --r-pill:999px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Mulish',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  body::before{content:"";position:fixed;inset:0;z-index:120;pointer-events:none;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  section[id]{scroll-margin-top:92px}
+  ::selection{background:var(--peri);color:var(--ink)}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2.5px solid var(--peri-deep);outline-offset:3px;border-radius:var(--r-xs)}
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{background:var(--indigo-deep);color:rgba(247,244,238,.82);font-size:.8rem;letter-spacing:.02em;position:relative;z-index:60}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:20px}
+  .topbar a{color:#fff;font-weight:700;transition:color .2s}
+  .topbar a:hover{color:var(--peri)}
+  .topbar .tb-r{display:flex;gap:22px;align-items:center}
+  @media(max-width:720px){.topbar{font-size:.74rem}.topbar .wrap{display:block;text-align:center;height:auto;min-height:38px;padding:8px 20px}.topbar .tb-l{display:block;line-height:1.4}.topbar .tb-r{display:none}}
+
+  /* ---------- NAV ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.82);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--line);transition:box-shadow .35s var(--ease),background .35s}
+  header.scrolled{box-shadow:0 10px 30px -20px rgba(27,29,46,.4);background:rgba(247,244,238,.92)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:flex;align-items:center;gap:13px}
+  .brand-logo{height:50px;width:auto;display:block;transition:transform .35s var(--ease),opacity .3s}
+  .brand:hover .brand-logo{transform:translateY(-1px);opacity:.86}
+  .foot-logo{height:56px;width:auto;display:block}
+  .ribbon{flex:none}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{font-weight:600;font-size:.92rem;color:var(--ink-soft);transition:color .25s;position:relative}
+  .nav-links a:hover{color:var(--indigo)}
+  .nav-links a:not(.btn-nav)::after{content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;background:var(--peri-deep);transition:width .3s var(--ease)}
+  .nav-links a:not(.btn-nav):hover::after{width:100%}
+  .btn-nav{background:var(--indigo);color:var(--cream)!important;padding:12px 22px;border-radius:var(--r-pill);font-weight:700;font-size:.88rem;box-shadow:var(--sh-btn);transition:background .25s,transform .25s var(--ease),box-shadow .25s}
+  .btn-nav:hover{background:var(--peri-deep);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(51,40,90,.6)}
+  .btn-nav:active{transform:translateY(0)}
+  /* six nav links need tighter spacing before the mobile menu takes over */
+  @media(min-width:721px) and (max-width:1000px){.nav-links{gap:20px}.nav-links a{font-size:.86rem}.nav-links a.btn-nav{padding:11px 17px;font-size:.83rem}}
+  @media(min-width:721px) and (max-width:840px){.brand-logo{height:40px}.nav-links{gap:13px}.nav-links a{font-size:.79rem}.nav-links a.btn-nav{padding:10px 14px;font-size:.77rem}}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;border-radius:var(--r-xs)}
+  .menu-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:transform .3s var(--ease),opacity .2s}
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* ---------- TYPE ---------- */
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-weight:800;font-size:.73rem;letter-spacing:.22em;text-transform:uppercase;color:var(--peri-deep);margin-bottom:16px}
+  .eyebrow .ln{width:32px;height:1px;background:var(--peri-deep);opacity:.55}
+  .eyebrow.center{justify-content:center}
+
+  /* ---------- PAGE HERO ---------- */
+  .page-hero{position:relative;padding:72px 0 36px;text-align:center;overflow:hidden}
+  .page-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 78% 14%,rgba(166,140,212,.30),transparent 48%),radial-gradient(circle at 10% 92%,rgba(106,79,168,.16),transparent 46%)}
+  .page-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.5rem,5.4vw,4rem);line-height:1.02;letter-spacing:-.03em;color:var(--ink);max-width:18ch;margin:0 auto}
+  .page-hero h1 em{font-style:italic;color:var(--peri-deep)}
+  .page-hero p.lead{font-size:1.14rem;line-height:1.6;color:var(--ink-soft);max-width:50ch;margin:20px auto 0}
+  .trust-row{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .trust-row span{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:700;color:var(--ink-soft)}
+  .trust-row svg{color:var(--peri-deep);flex:none}
+
+  /* ---------- DONATE LAYOUT ---------- */
+  .donate-layout{padding:46px 0 90px}
+  .grid{display:grid;grid-template-columns:1.45fr .9fr;gap:36px;align-items:start}
+
+  /* form card */
+  .form-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:44px 40px;box-shadow:var(--sh-frame)}
+  .form-card h2{font-family:var(--serif);font-weight:600;font-size:1.9rem;letter-spacing:-.015em;margin-bottom:6px}
+  .form-card .sub{color:var(--ink-soft);font-size:.98rem;margin-bottom:28px}
+  .field-label{display:block;font-weight:800;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 12px}
+  .block-gap{margin-top:30px}
+
+  /* frequency toggle */
+  .freq{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream-deep);border-radius:var(--r-sm);padding:5px}
+  .freq button{border:none;background:none;cursor:pointer;font-family:var(--sans);font-weight:700;font-size:.95rem;color:var(--ink-soft);padding:12px;border-radius:9px;transition:.25s var(--ease);position:relative}
+  .freq button.sel{background:#fff;color:var(--indigo);box-shadow:var(--sh-rest)}
+  .freq .tag-best{font-size:.62rem;letter-spacing:.06em;background:var(--peri);color:var(--ink);padding:2px 7px;border-radius:var(--r-pill);margin-left:7px;vertical-align:middle;text-transform:uppercase;font-weight:800}
+
+  /* amount grid */
+  .amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .amounts button{border:1.5px solid var(--line);background:#fff;border-radius:var(--r-sm);cursor:pointer;font-family:var(--sans);font-weight:800;font-size:1.15rem;color:var(--ink);padding:18px 10px;transition:.22s var(--ease)}
+  .amounts button:hover{border-color:var(--peri);transform:translateY(-2px)}
+  .amounts button.sel{border-color:var(--peri-deep);background:rgba(166,140,212,.10);color:var(--indigo);box-shadow:inset 0 0 0 1px var(--peri-deep)}
+  .custom-amt{position:relative;margin-top:12px}
+  .custom-amt .cur{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-weight:800;color:var(--ink-soft);font-size:1.05rem}
+  .custom-amt input{width:100%;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:16px 16px 16px 38px;font-family:var(--sans);font-weight:700;font-size:1.05rem;color:var(--ink);background:#fff;transition:.2s}
+  .custom-amt input:focus{outline:none;border-color:var(--peri-deep);box-shadow:0 0 0 3px rgba(166,140,212,.18)}
+  .impact{margin-top:14px;display:flex;gap:10px;align-items:flex-start;background:linear-gradient(150deg,rgba(166,140,212,.16),rgba(166,140,212,.06));border-radius:var(--r-sm);padding:14px 16px;font-size:.92rem;line-height:1.5;color:var(--ink-soft)}
+  .impact svg{color:var(--peri-deep);flex:none;margin-top:1px}
+  .impact b{color:var(--indigo)}
+
+  /* dedication */
+  .toggle-line{display:flex;align-items:center;gap:11px;cursor:pointer;user-select:none}
+  .switch{width:42px;height:24px;border-radius:var(--r-pill);background:var(--cream-deep);border:1px solid var(--line);position:relative;transition:.25s var(--ease);flex:none}
+  .switch::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:.25s var(--ease)}
+  .toggle-line input{position:absolute;opacity:0;width:0;height:0}
+  .toggle-line input:checked + .switch{background:var(--peri-deep);border-color:var(--peri-deep)}
+  .toggle-line input:checked + .switch::after{left:21px}
+  .toggle-line .t-txt{font-weight:700;font-size:.95rem}
+  .dedicate-fields{display:none;margin-top:16px;gap:12px;grid-template-columns:1fr 1fr}
+  .dedicate-fields.show{display:grid}
+
+  /* inputs */
+  .inp{width:100%;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;font-family:var(--sans);font-size:.97rem;color:var(--ink);background:#fff;transition:.2s}
+  .inp:focus{outline:none;border-color:var(--peri-deep);box-shadow:0 0 0 3px rgba(166,140,212,.18)}
+  .inp::placeholder{color:#9a9cb0}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  select.inp{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233a3d52' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+
+  /* payment method tabs */
+  .methods{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .methods button{border:1.5px solid var(--line);background:#fff;border-radius:var(--r-sm);cursor:pointer;padding:14px 6px;min-height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;transition:.22s var(--ease);font-family:var(--sans);font-weight:700;font-size:.78rem;color:var(--ink-soft)}
+  .methods button:hover{border-color:var(--peri);transform:translateY(-2px)}
+  .methods button.sel{border-color:var(--peri-deep);background:rgba(166,140,212,.08);color:var(--indigo)}
+  .methods .m-ic{height:22px;display:flex;align-items:center;font-weight:800;font-size:.95rem}
+  .pay-note{margin-top:14px;font-size:.86rem;color:var(--ink-soft);background:var(--cream-deep);border-radius:var(--r-sm);padding:13px 16px;line-height:1.55}
+  .pay-note b{color:var(--indigo)}
+
+  /* summary + submit */
+  .summary{display:flex;justify-content:space-between;align-items:baseline;margin:30px 0 18px;padding-top:24px;border-top:1px solid var(--line)}
+  .summary .s-lbl{font-weight:700;color:var(--ink-soft)}
+  .summary .s-amt{font-family:var(--serif);font-weight:600;font-size:2.4rem;color:var(--indigo);line-height:1}
+  .summary .s-amt small{font-family:var(--sans);font-size:.85rem;font-weight:700;color:var(--ink-soft)}
+  .btn-give{width:100%;background:var(--indigo);color:var(--cream);border:none;cursor:pointer;padding:18px;border-radius:var(--r);font-family:var(--sans);font-weight:800;font-size:1.05rem;box-shadow:var(--sh-btn);transition:background .25s,transform .25s var(--ease),box-shadow .25s;display:flex;align-items:center;justify-content:center;gap:9px;position:relative;overflow:hidden}
+  .btn-give::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);transition:left .6s var(--ease)}
+  .btn-give:hover{background:var(--peri-deep);transform:translateY(-2px);box-shadow:0 18px 34px -12px rgba(51,40,90,.6)}
+  .btn-give:hover::after{left:130%}
+  .btn-give:active{transform:translateY(0)}
+  /* disabled state — payment provider not configured yet (see PAYMENT gate in script) */
+  .btn-give.is-disabled,.btn-give:disabled{opacity:.55;cursor:not-allowed;box-shadow:none}
+  .btn-give.is-disabled:hover,.btn-give:disabled:hover{background:var(--indigo);transform:none;box-shadow:none}
+  .btn-give.is-disabled::after,.btn-give:disabled::after{display:none}
+  .btn-give.is-disabled svg,.btn-give:disabled svg{display:none}
+  .secure-line{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:16px;font-size:.82rem;color:var(--ink-mute)}
+  .secure-line svg{color:var(--peri-deep)}
+
+  /* sidebar */
+  .side{display:flex;flex-direction:column;gap:24px;position:sticky;top:102px}
+  .side-card{background:var(--indigo);color:var(--cream);border-radius:var(--r-lg);padding:36px 32px;position:relative;overflow:hidden;box-shadow:var(--sh-frame)}
+  .side-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 0%,rgba(166,140,212,.42),transparent 56%),radial-gradient(circle at 8% 100%,rgba(106,79,168,.28),transparent 52%)}
+  .side-card::after{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(247,244,238,.3),transparent)}
+  .side-card > *{position:relative}
+  .side-card h3{font-family:var(--serif);font-weight:600;font-size:1.6rem;margin-bottom:14px;line-height:1.18;letter-spacing:-.01em}
+  .side-card p{color:rgba(247,244,238,.82);font-size:.96rem;margin-bottom:20px;line-height:1.55}
+  .side-card p:last-child{margin-bottom:0}
+  /* light card variant + supporting content — gives the sticky sidebar real weight */
+  .side-card.plain{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--sh-rest)}
+  .side-card.plain h3{color:var(--ink)}
+  .side-card.plain p{color:var(--ink-soft)}
+  .side-stat{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 18px}
+  .side-stat > div{background:var(--cream-deep);border-radius:var(--r-sm);padding:16px 12px;text-align:center}
+  .ss-num{display:block;font-family:var(--serif);font-weight:600;font-size:1.9rem;color:var(--indigo);line-height:1}
+  .ss-lbl{display:block;font-size:.75rem;color:var(--ink-soft);margin-top:6px;line-height:1.35}
+  .side-src{display:inline-block;margin-top:2px;font-size:.76rem;font-weight:600;color:var(--peri-deep);text-decoration:underline;text-underline-offset:2px}
+
+  /* ---------- OTHER WAYS ---------- */
+  .other-ways{padding:0 0 96px}
+  .ow-head{text-align:center;max-width:560px;margin:0 auto 46px}
+  .ow-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,3.6vw,2.6rem);letter-spacing:-.025em;line-height:1.04}
+  .ow-head p{color:var(--ink-soft);margin-top:14px;font-size:1.06rem;line-height:1.6}
+  .ow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .ow-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;position:relative;box-shadow:var(--sh-rest);transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+  .ow-card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(150deg,rgba(166,140,212,.5),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s}
+  .ow-card:hover{transform:translateY(-7px);box-shadow:var(--sh-hover);border-color:transparent}
+  .ow-card:hover::before{opacity:1}
+  .ow-card .ic{width:48px;height:48px;border-radius:var(--r-sm);background:linear-gradient(155deg,rgba(166,140,212,.22),rgba(166,140,212,.08));display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--peri-deep);transition:transform .4s var(--ease)}
+  .ow-card:hover .ic{transform:scale(1.08) rotate(-3deg)}
+  .ow-card h3{font-family:var(--serif);font-weight:600;font-size:1.24rem;margin-bottom:9px;letter-spacing:-.01em}
+  .ow-card p{color:var(--ink-soft);font-size:.92rem;line-height:1.6}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--indigo-deep);color:rgba(247,244,238,.7);padding:80px 0 36px;position:relative}
+  footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(247,244,238,.2),transparent)}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+  .foot-brand   .foot-brand p{font-size:.92rem;line-height:1.6;color:rgba(247,244,238,.62);margin-top:20px;max-width:32ch}
+  .foot-ein{margin-top:18px;font-size:.8rem;color:rgba(247,244,238,.5)}
+  .foot-col .fc-h{font-family:var(--sans);font-weight:700;font-size:.72rem;line-height:1.4;text-transform:uppercase;letter-spacing:.16em;color:#fff;margin-bottom:20px}
+  .foot-col a{display:block;color:rgba(247,244,238,.7);font-size:.92rem;margin-bottom:12px;transition:color .2s,transform .2s var(--ease)}
+  .foot-col a:hover{color:var(--peri);transform:translateX(3px)}
+  .foot-bottom{margin-top:58px;padding-top:28px;border-top:1px solid rgba(247,244,238,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;color:rgba(247,244,238,.5)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:960px){
+    .grid{grid-template-columns:1fr;gap:28px}
+    .side{position:static;flex-direction:row;flex-wrap:wrap}
+    .side > *{flex:1;min-width:260px}
+    .ow-grid{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:720px){
+    .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(247,244,238,.98);backdrop-filter:blur(14px);padding:14px 24px 22px;gap:2px;border-bottom:1px solid var(--line);box-shadow:0 24px 36px -22px rgba(27,29,46,.45);align-items:stretch;display:none}
+    .nav-links.show{display:flex}
+    .nav-links a:not(.btn-nav){padding:14px 6px;font-size:1.02rem;border-bottom:1px solid var(--line-soft)}
+    .nav-links a:not(.btn-nav)::after{display:none}
+    .btn-nav{text-align:center;padding:15px 22px;margin-top:12px}
+    .menu-toggle{display:block}
+    /* static (non-sticky) header on mobile — scrolls away with the page. */
+    header{position:relative;background:var(--cream);-webkit-backdrop-filter:none;backdrop-filter:none}
+    header.scrolled{background:var(--cream);box-shadow:none}
+    .side{flex-direction:column}
+    .form-card{padding:32px 24px}
+    .methods{grid-template-columns:repeat(2,1fr)}
+    .two-col,.dedicate-fields.show{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .freq button{display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.15;padding:11px 6px}
+    .freq .tag-best{margin-left:0}
+  }
+  @media(max-width:520px){
+    .wrap{padding:0 20px}
+    .brand-logo{height:38px}
+    .foot-logo{height:46px}
+    .page-hero{padding:48px 0 28px}
+    .page-hero h1{font-size:clamp(2.1rem,8.5vw,2.7rem)}
+    .page-hero p.lead{font-size:1.04rem}
+    .trust-row{gap:14px 18px;margin-top:22px}
+    .trust-row span{font-size:.8rem}
+    .donate-layout{padding:34px 0 70px}
+    .form-card{padding:26px 20px;border-radius:var(--r)}
+    .form-card h2{font-size:1.65rem}
+    .amounts button{padding:16px 8px;font-size:1.08rem}
+    .summary .s-amt{font-size:2.1rem}
+    .ow-grid{grid-template-columns:1fr}
+    .side-card{padding:28px 24px}
+    footer{padding:60px 0 32px}
+    .foot-bottom{flex-direction:column;text-align:left;gap:8px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="tb-l">100% of gifts fund the mission</span>
+    <div class="tb-r">
+      <a href="index.html">← Back to site</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAV ===== -->
+<header id="hdr">
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="brand" aria-label="The Alexandra Richmond Foundation — home">
+          <img class="brand-logo" src="logo-wordmark.png" alt="The Alexandra Richmond Foundation" width="1490" height="335">
+        </a>
+      <button class="menu-toggle" id="mt" aria-label="Toggle menu" aria-controls="nl" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="nl">
+        <a href="index.html#mission">Our Mission</a>
+        <a href="story.html">Her Story</a>
+        <a href="awareness.html">Awareness</a>
+        <a href="events.html">Events</a>
+        <a href="board.html">Our Board</a>
+        <a href="donate.html" class="btn-nav">Donate</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero" id="main" tabindex="-1">
+  <div class="wrap">
+    <span class="eyebrow center reveal"><span class="ln"></span> Support The Mission <span class="ln"></span></span>
+    <h1 class="reveal">Every gift moves us closer to <em>early detection.</em></h1>
+    <p class="lead reveal">Your contribution funds awareness, innovative research, and the search for earlier detection, better treatments, and cures for esophageal cancer, in Alexandra's memory.</p>
+    <div class="trust-row reveal">
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg> Secure encrypted giving</span>
+      <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z" stroke="currentColor" stroke-width="1.6"/></svg> 100% to the cause</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONATE LAYOUT ===== -->
+<section class="donate-layout">
+  <div class="wrap grid">
+
+    <!-- DONATION FORM -->
+    <div class="form-card reveal">
+      <h2>Make your gift</h2>
+      <p class="sub">Choose an amount and how you'd like to give. It takes less than a minute.</p>
+
+      <!-- frequency -->
+      <span class="field-label">Gift frequency</span>
+      <div class="freq" id="freq">
+        <button data-freq="once" class="sel">One-time</button>
+        <button data-freq="monthly">Monthly <span class="tag-best">Most impact</span></button>
+      </div>
+
+      <!-- amount -->
+      <div class="block-gap">
+        <span class="field-label">Select an amount</span>
+        <div class="amounts" id="amounts">
+          <button data-amt="25">$25</button>
+          <button data-amt="50" class="sel">$50</button>
+          <button data-amt="100">$100</button>
+          <button data-amt="250">$250</button>
+          <button data-amt="500">$500</button>
+          <button data-amt="1000">$1,000</button>
+        </div>
+        <div class="custom-amt">
+          <span class="cur">$</span>
+          <input type="number" id="customAmt" min="1" step="1" placeholder="Other amount" inputmode="numeric" aria-label="Other amount">
+        </div>
+        <div class="impact" id="impact">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <span id="impactTxt"></span>
+        </div>
+      </div>
+
+      <!-- dedication -->
+      <div class="block-gap">
+        <label class="toggle-line">
+          <input type="checkbox" id="dedToggle">
+          <span class="switch"></span>
+          <span class="t-txt">Dedicate this gift in memory or honor of someone</span>
+        </label>
+        <div class="dedicate-fields" id="dedFields">
+          <select class="inp" id="dedType" aria-label="Dedication type">
+            <option value="memory">In memory of</option>
+            <option value="honor">In honor of</option>
+          </select>
+          <input class="inp" id="dedName" type="text" placeholder="Their name" aria-label="Dedication name">
+        </div>
+      </div>
+
+      <!-- donor info -->
+      <div class="block-gap">
+        <span class="field-label">Your information</span>
+        <div class="two-col" style="margin-bottom:12px">
+          <input class="inp" id="firstName" type="text" placeholder="First name" autocomplete="given-name" aria-label="First name">
+          <input class="inp" id="lastName" type="text" placeholder="Last name" autocomplete="family-name" aria-label="Last name">
+        </div>
+        <input class="inp" id="email" type="email" placeholder="Email address (for your receipt)" autocomplete="email" aria-label="Email address">
+      </div>
+
+      <!-- payment method -->
+      <div class="block-gap">
+        <span class="field-label">Payment method</span>
+        <div class="methods" id="methods">
+          <button data-method="card" class="sel">
+            <span class="m-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M2 9.5h20" stroke="currentColor" stroke-width="1.6"/></svg></span>
+            Card
+          </button>
+          <button data-method="venmo" aria-label="Venmo">
+            <span class="m-ic" style="color:#287AAF">Venmo</span>
+          </button>
+          <button data-method="paypal" aria-label="PayPal">
+            <span class="m-ic" style="color:#003087">PayPal</span>
+          </button>
+          <button data-method="wallet">
+            <span class="m-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M16 3a4 4 0 0 0-4 3 4 4 0 0 0-4-3M12 6c0-1.5 1-3 3-3M9 21h6a4 4 0 0 0 4-4v-5a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v5a4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+            Apple Pay
+          </button>
+        </div>
+        <div class="pay-note" id="payNote"></div>
+      </div>
+
+      <!-- summary + submit -->
+      <div class="summary">
+        <span class="s-lbl">Your gift</span>
+        <span class="s-amt">$<span id="totalAmt">50</span><small id="totalFreq"></small></span>
+      </div>
+      <button class="btn-give" id="giveBtn">
+        <span id="btnLabel">Donate $<span id="btnAmt">50</span></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="secure-line" id="secureLine">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>
+        Secure, encrypted payment. Your receipt is emailed instantly.
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="side">
+      <div class="side-card reveal">
+        <h3>Where your gift goes</h3>
+        <p>Every dollar is put to work funding innovative research, awareness, earlier detection, and support for the families facing this disease.</p>
+      </div>
+      <div class="side-card plain reveal">
+        <h3>Why early detection matters</h3>
+        <div class="side-stat">
+          <div><span class="ss-num">~49%</span><span class="ss-lbl">survive when caught early</span></div>
+          <div><span class="ss-num">~5%</span><span class="ss-lbl">once it has spread</span></div>
+        </div>
+        <p>Your gift funds the awareness and research that helps catch esophageal cancer sooner, when it is far more survivable.</p>
+        <a class="side-src" href="https://seer.cancer.gov/statfacts/html/esoph.html" target="_blank" rel="noopener">Five-year relative survival · NCI SEER</a>
+      </div>
+      <div class="side-card plain reveal">
+        <h3>Another way to give?</h3>
+        <p>Prefer to give in memory or honor of someone, by mail, or through employer matching? See the options below, or reach out and we'll help.</p>
+        <a class="side-src" href="#other-ways">See other ways to give</a>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ===== OTHER WAYS TO GIVE ===== -->
+<section class="other-ways" id="other-ways">
+  <div class="wrap">
+    <div class="ow-head reveal">
+      <span class="eyebrow center"><span class="ln"></span> More Ways To Give <span class="ln"></span></span>
+      <h2>Other ways to make an impact</h2>
+      <p>Prefer to give another way? Here are a few options. Reach out and we'll help with any of them.</p>
+    </div>
+    <div class="ow-grid">
+      <div class="ow-card reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>In Memory / In Honor</h3>
+        <p>Dedicate your gift in someone's name. We'll send a personalized acknowledgment.</p>
+      </div>
+      <div class="ow-card reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M16 19a4 4 0 0 0-8 0M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.6"/><path d="M20 8v4M22 10h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Corporate Matching</h3>
+        <p>Many employers match charitable gifts. Check with HR to double your impact.</p>
+      </div>
+      <div class="ow-card reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 7h18v13H3zM3 7l9-4 9 4M8 21v-6h8v6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3>Mail a Check</h3>
+        <p>Prefer to give by mail? Contact us for the foundation's mailing address.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="brand" aria-label="The Alexandra Richmond Foundation — home">
+          <img class="foot-logo" src="logo-light.png" loading="lazy" alt="The Alexandra Richmond Foundation" width="1490" height="335">
+        </a>
+        <p>A nonprofit dedicated to esophageal cancer awareness, research, earlier detection, and family support, in loving memory of Alexandra Richmond.</p>
+      </div>
+      <div class="foot-col">
+        <h2 class="fc-h">Explore</h2>
+        <a href="index.html#mission">Our Mission</a>
+        <a href="story.html">Her Story</a>
+        <a href="awareness.html">Awareness</a>
+        <a href="events.html">Events</a>
+        <a href="board.html">Our Board</a>
+      </div>
+      <div class="foot-col">
+        <h2 class="fc-h">Get Involved</h2>
+        <a href="donate.html">Donate</a>
+        <a href="donate.html">In Memory / In Honor</a>
+        <a href="index.html#contact">Contact Us</a>
+      </div>
+      <div class="foot-col">
+        <h2 class="fc-h">Contact</h2>
+        <!-- TODO(client): confirm real email is live + supply real phone number before launch -->
+        <a href="mailto:hello@alexandrarichmond.org">hello@alexandrarichmond.org</a>
+        <a href="tel:+15555550100">(555) 555-0100</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 The Alexandra Richmond Foundation. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="payment-config.js"></script>
+<script>
+  /* =========================================================================
+     PAYMENT INTEGRATION LAYER  —  swap in a real provider here when going live.
+     -------------------------------------------------------------------------
+     The whole form is provider-agnostic. To go live, set PAYMENT.provider and
+     fill in startCheckout(). Everything above (UI, amounts, donor info) stays.
+
+     Recommended for cards + Venmo together:  'givebutter' or 'donorbox'
+       - Givebutter (free for nonprofits): cards, Apple/Google Pay, PayPal, VENMO
+       - Donorbox: cards, Apple/Google Pay, PayPal, Venmo (via PayPal)
+     Stripe alone does cards + wallets, but NOT Venmo (Venmo is PayPal-owned),
+     so pair Stripe with a PayPal/Venmo button if you go the Stripe route.
+     ========================================================================= */
+  const PAYMENT = {
+    provider: 'givebutter',    // 'stub' | 'givebutter' | 'donorbox' | 'stripe' | 'paypal'
+
+    /* Campaign link lives in payment-config.js — the single place to paste it.
+       That one file also drives the Events sponsorship checkout. */
+    givebutterCampaign: (window.ARF_PAYMENT && window.ARF_PAYMENT.givebutterCampaign) || '',
+
+    donorboxUrl:          (window.ARF_PAYMENT && window.ARF_PAYMENT.donorboxUrl) || '',
+    stripePublishableKey: (window.ARF_PAYMENT && window.ARF_PAYMENT.stripePublishableKey) || '',
+    venmoHandle:          (window.ARF_PAYMENT && window.ARF_PAYMENT.venmoHandle) || '@AlexandraRichmondFdn'
+  };
+
+  // donation state — this object is exactly what a checkout call needs
+  const gift = { amount:50, frequency:'once', method:'card', dedicate:false, dedType:'memory', dedName:'' };
+
+  // ---- impact copy keyed to amount ----
+  function impactCopy(a){
+    if(a>=1000) return 'Your <b>$'+fmt(a)+'</b> gift can underwrite a meaningful share of a research grant.';
+    if(a>=500)  return 'Your <b>$'+fmt(a)+'</b> gift supports a research grant advancing early detection.';
+    if(a>=250)  return 'Your <b>$'+fmt(a)+'</b> gift funds awareness outreach across a whole community.';
+    if(a>=100)  return 'Your <b>$'+fmt(a)+'</b> gift helps fund screening education for at-risk families.';
+    if(a>=50)   return 'Your <b>$'+fmt(a)+'</b> gift prints awareness materials for dozens of patients.';
+    if(a>=1)    return 'Every dollar of your <b>$'+fmt(a)+'</b> gift goes directly to the mission.';
+    return 'Choose or enter an amount to see your impact.';
+  }
+  function fmt(n){ return Number(n).toLocaleString('en-US'); }
+
+  // ---- payment method notes ----
+  const methodNotes = {
+    card:   '<b>Card</b>: enter your card details securely on the next step. Apple/Google Pay also available.',
+    venmo:  '<b>Venmo</b>: you\'ll be handed off to Venmo to approve your gift. (Foundation: '+PAYMENT.venmoHandle+')',
+    paypal: '<b>PayPal</b>: complete your gift with your PayPal balance or linked account on the next step.',
+    wallet: '<b>Apple Pay</b>: confirm with Face ID / Touch ID on the next step. No card typing needed.'
+  };
+
+  // ---- DOM ----
+  const els = {
+    freq: document.getElementById('freq'),
+    amounts: document.getElementById('amounts'),
+    custom: document.getElementById('customAmt'),
+    impactTxt: document.getElementById('impactTxt'),
+    methods: document.getElementById('methods'),
+    payNote: document.getElementById('payNote'),
+    total: document.getElementById('totalAmt'),
+    totalFreq: document.getElementById('totalFreq'),
+    btnAmt: document.getElementById('btnAmt'),
+    dedToggle: document.getElementById('dedToggle'),
+    dedFields: document.getElementById('dedFields')
+  };
+
+  function render(){
+    els.total.textContent = fmt(gift.amount||0);
+    if(els.btnAmt) els.btnAmt.textContent = fmt(gift.amount||0);  // btnAmt is absent while donations are disabled
+    els.totalFreq.textContent = gift.frequency==='monthly' ? '/mo' : '';
+    els.impactTxt.innerHTML = impactCopy(gift.amount||0);
+    els.payNote.innerHTML = methodNotes[gift.method];
+  }
+
+  /* ---- payment-ready gate ----
+     The Give button must never be a silent no-op. It stays visibly disabled
+     until the active provider is actually configured. Populate the provider's
+     URL/key in PAYMENT above and the button re-enables itself on next load,
+     with its original copy — no other edit required. */
+  function paymentReady(){
+    switch(PAYMENT.provider){
+      case 'givebutter': return !!PAYMENT.givebutterCampaign;
+      case 'donorbox':   return !!PAYMENT.donorboxUrl;
+      case 'stripe':     return !!PAYMENT.stripePublishableKey;
+      default:           return false;
+    }
+  }
+  const LOCK_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>';
+  const INFO_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  function applyPaymentState(){
+    const ready = paymentReady();
+    const btn = document.getElementById('giveBtn');
+    const label = document.getElementById('btnLabel');
+    const secure = document.getElementById('secureLine');
+    btn.disabled = !ready;
+    btn.classList.toggle('is-disabled', !ready);
+    if(ready){
+      label.innerHTML = 'Donate $<span id="btnAmt">'+fmt(gift.amount||0)+'</span>';
+      els.btnAmt = document.getElementById('btnAmt');
+      secure.innerHTML = LOCK_SVG + ' Secure, encrypted payment. Your receipt is emailed instantly.';
+    } else {
+      label.textContent = 'Donations opening soon';
+      els.btnAmt = null;
+      secure.innerHTML = INFO_SVG + ' Online giving is being set up. Contact us to give today.';
+    }
+  }
+
+  // frequency
+  els.freq.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    els.freq.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); gift.frequency=b.dataset.freq; render();
+  }));
+
+  // preset amounts
+  els.amounts.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    els.amounts.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); gift.amount=Number(b.dataset.amt); els.custom.value=''; render();
+  }));
+
+  // custom amount
+  els.custom.addEventListener('input',()=>{
+    els.amounts.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
+    gift.amount = Number(els.custom.value)||0; render();
+  });
+
+  // payment method
+  els.methods.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    els.methods.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel'); gift.method=b.dataset.method; render();
+  }));
+
+  // dedication
+  els.dedToggle.addEventListener('change',()=>{
+    gift.dedicate=els.dedToggle.checked;
+    els.dedFields.classList.toggle('show',gift.dedicate);
+  });
+  document.getElementById('dedType').addEventListener('change',e=>gift.dedType=e.target.value);
+  document.getElementById('dedName').addEventListener('input',e=>gift.dedName=e.target.value);
+
+  // ---- submit / checkout handoff ----
+  function startCheckout(payload){
+    switch(PAYMENT.provider){
+      case 'givebutter': {
+        if(!PAYMENT.givebutterCampaign){
+          // Unreachable in normal use: the Give button is disabled until this is set. Guard kept as a backstop.
+          console.warn('Givebutter campaign link not set — no checkout available.');
+          return;
+        }
+        // Hand off to Givebutter's hosted, PCI-compliant checkout with the amount pre-filled.
+        const base = PAYMENT.givebutterCampaign.replace(/\/+$/,'');
+        const p = new URLSearchParams();
+        if(payload.amount) p.set('amount', payload.amount);
+        if(payload.frequency==='monthly') p.set('frequency','recurring');
+        if(payload.donor){
+          if(payload.donor.firstName) p.set('first_name', payload.donor.firstName);
+          if(payload.donor.lastName)  p.set('last_name',  payload.donor.lastName);
+          if(payload.donor.email)     p.set('email',      payload.donor.email);
+        }
+        window.location.href = base + (base.includes('?')?'&':'?') + p.toString();
+        return;
+      }
+      case 'donorbox':
+        window.location.href = PAYMENT.donorboxUrl + '?amount=' + payload.amount
+          + '&recurring=' + (payload.frequency==='monthly');
+        return;
+      // case 'stripe':
+      //   /* call your backend -> Stripe Checkout Session -> redirect to session.url */
+      //   return;
+      default:
+        // No provider configured — the Give button is disabled, so this is a backstop only.
+        console.warn('No payment provider configured; donation not processed.', payload);
+    }
+  }
+
+  document.getElementById('giveBtn').addEventListener('click',()=>{
+    if(!paymentReady()) return;                                  // backstop: disabled buttons shouldn't act
+    if(!gift.amount || gift.amount<1){ els.custom.focus(); return; }
+    startCheckout({
+      amount: gift.amount,
+      frequency: gift.frequency,
+      method: gift.method,
+      dedicate: gift.dedicate,
+      dedType: gift.dedType,
+      dedName: gift.dedName,
+      donor: {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value
+      }
+    });
+  });
+
+  // mobile menu
+  const mt=document.getElementById('mt'),nl=document.getElementById('nl');
+  const setMenu=open=>{nl.classList.toggle('show',open);mt.classList.toggle('open',open);mt.setAttribute('aria-expanded',open);};
+  mt.addEventListener('click',()=>setMenu(!nl.classList.contains('show')));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nl.classList.contains('show')){setMenu(false);mt.focus();}});
+  nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+  // nav shadow on scroll
+  const hdr=document.getElementById('hdr');
+  const onScroll=()=>hdr.classList.toggle('scrolled',window.scrollY>8);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // scroll reveal
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*90)+'ms';io.observe(el);});
+
+  // ---- pre-select amount from homepage quick-give links (?amount=50 / ?amount=custom) ----
+  (function preselectFromURL(){
+    const q = new URLSearchParams(location.search).get('amount');
+    if(!q) return;
+    if(q==='custom'){
+      els.amounts.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
+      gift.amount = 0; els.custom.value=''; els.custom.focus();
+      return;
+    }
+    const amt = Number(q);
+    if(!amt || amt<1) return;
+    const match = [...els.amounts.querySelectorAll('button')].find(b=>Number(b.dataset.amt)===amt);
+    els.amounts.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
+    if(match){ match.classList.add('sel'); els.custom.value=''; }
+    else { els.custom.value = amt; }   // amount not in preset grid -> put it in custom field
+    gift.amount = amt;
+  })();
+
+  applyPaymentState();   // gate the Give button on real provider config before first paint
+  render();
+</script>
+</body>
+</html>

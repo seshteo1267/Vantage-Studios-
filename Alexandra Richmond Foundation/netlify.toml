@@ -1,0 +1,81 @@
+# The site deploys from this folder with no build step.
+#
+# PRIMARY DEFENCE: nothing internal lives in this folder at all. Working docs,
+# client source assets and Claude config were moved to ../_client-docs/, which
+# sits outside the publish directory and therefore cannot be deployed.
+#
+# BACKSTOP: the rules below force a real 404 for internal paths, so that if a
+# doc, dotfile or config ever lands in here again it still cannot be read.
+# force = true makes these win over any actual file on disk.
+
+# --- MUST COME FIRST: never block /.well-known/ ---
+# Let's Encrypt validates domain ownership by fetching
+# /.well-known/acme-challenge/<token> over HTTP. Netlify renews the
+# certificate automatically every ~90 days using that path. The dotfile
+# block below would otherwise 404 it and silently break renewal, taking
+# HTTPS down on the live site. Netlify applies the FIRST matching rule,
+# so this pass-through has to sit above it.
+[[redirects]]
+  from = "/.well-known/*"
+  to = "/.well-known/:splat"
+  status = 200
+
+# --- dotfiles and dot-directories (.claude, .netlify, .git, .env, .DS_Store) ---
+[[redirects]]
+  from = "/.*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/*/.*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# --- internal working docs ---
+[[redirects]]
+  from = "/_docs/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/_client-docs/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# --- any markdown file (no page on this site is served as .md) ---
+[[redirects]]
+  from = "/*.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/*/*.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# --- config and state files ---
+[[redirects]]
+  from = "/*.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# --- security headers ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — The Alexandra Richmond Foundation</title>
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#33285a">
+
+<link rel="stylesheet" href="/fonts.css">
+<style>
+  .skip-link{position:absolute;left:8px;top:-60px;background:var(--indigo);color:var(--cream);padding:10px 18px;border-radius:8px;z-index:200;font-weight:700;transition:top .2s}
+  .skip-link:focus{top:8px}
+  :root{
+    --cream:#f7f4ee;--ink:#1b1d2e;--ink-soft:#3a3d52;
+    --indigo:#33285a;--indigo-deep:#241c43;--peri:#a68cd4;--peri-deep:#6a4fa8;
+    --line:rgba(27,29,46,.13);--sh-btn:0 12px 26px -12px rgba(51,40,90,.55);
+    --r-pill:999px;--r:16px;--ease:cubic-bezier(.22,.61,.36,1);
+    --serif:'Cormorant Garamond',Georgia,serif;--sans:'Mulish',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;width:100%}
+  a:focus-visible{outline:2.5px solid var(--peri-deep);outline-offset:3px;border-radius:6px}
+  header{border-bottom:1px solid var(--line);background:rgba(247,244,238,.92)}
+  nav{display:flex;align-items:center;height:78px}
+  .brand-logo{height:50px;width:auto;display:block}
+  .nf{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0;position:relative;overflow:hidden}
+  .nf::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 80% 8%,rgba(166,140,212,.26),transparent 52%),radial-gradient(circle at 6% 96%,rgba(106,79,168,.13),transparent 48%)}
+  .nf .inner{position:relative;z-index:1;max-width:520px}
+  .nf .code{font-family:var(--serif);font-weight:600;font-size:clamp(4rem,9vw,6.5rem);color:var(--peri-deep);line-height:1}
+  .nf h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.08;letter-spacing:-.02em;margin-top:8px}
+  .nf p{font-size:1.1rem;color:var(--ink-soft);margin:18px auto 34px;max-width:42ch}
+  .btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--indigo);color:var(--cream);padding:16px 32px;border-radius:var(--r-pill);font-weight:700;font-size:1rem;box-shadow:var(--sh-btn);transition:background .25s,transform .25s var(--ease)}
+  .btn-primary:hover{background:var(--peri-deep);transform:translateY(-2px)}
+  footer{background:var(--indigo-deep);color:rgba(247,244,238,.6);padding:34px 0;text-align:center;font-size:.84rem}
+  @media(max-width:520px){.wrap{padding:0 20px}.nf{padding:56px 0}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="/index.html" class="brand" aria-label="The Alexandra Richmond Foundation — home">
+        <img class="brand-logo" src="/logo-wordmark.png" alt="The Alexandra Richmond Foundation" width="1490" height="335">
+      </a>
+    </nav>
+  </div>
+</header>
+<main class="nf" id="main" tabindex="-1">
+  <div class="wrap">
+    <div class="inner">
+      <div class="code">404</div>
+      <h1>This page couldn't be found.</h1>
+      <p>The page you're looking for may have moved. Let's get you back to where you meant to be.</p>
+      <a href="/index.html" class="btn-primary">Back to home
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">© 2026 The Alexandra Richmond Foundation. All rights reserved.</div>
+</footer>
+</body>
+</html>
