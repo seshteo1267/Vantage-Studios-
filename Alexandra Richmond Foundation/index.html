@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Alexandra Richmond Foundation — Esophageal Cancer Awareness and Research</title>
+<title>The Alexandra Richmond Foundation — Esophageal and Gastric Cancer Awareness and Research</title>
 <meta name="description" content="The Alexandra Richmond Foundation advances awareness, funds research, and supports earlier detection, better treatments, and cures for esophageal cancer — in loving memory of Alexandra Richmond.">
 
 <!-- ===== LINK PREVIEW (Open Graph / iMessage / social) =====
      Live URL: https://alexandrarichmondfoundation.org -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Alexandra Richmond Foundation">
-<meta property="og:title" content="The Alexandra Richmond Foundation — Esophageal Cancer Awareness and Research">
+<meta property="og:title" content="The Alexandra Richmond Foundation — Esophageal and Gastric Cancer Awareness and Research">
 <meta property="og:description" content="Advancing awareness, research, and earlier detection for esophageal cancer — carrying forward Alexandra's legacy of resilience, kindness, and hope.">
 <meta property="og:url" content="https://alexandrarichmondfoundation.org/">
 <meta property="og:image" content="https://alexandrarichmondfoundation.org/share.jpg">
@@ -172,20 +172,22 @@
   .stat:last-child{border-right:none}
   .stat:hover{background:rgba(166,140,212,.06)}
   .stat .num{font-family:var(--serif);font-size:2.85rem;font-weight:600;color:var(--indigo);line-height:1;letter-spacing:-.01em}
+.stat .num.stat-pair{display:flex;flex-direction:column;gap:5px;font-family:var(--sans);font-size:1rem;line-height:1.2}
+  .stat-pair span{display:flex;align-items:baseline;gap:9px;font-size:.92rem;font-weight:600;color:var(--ink-soft);white-space:nowrap}
+  .stat-pair b{font-family:var(--serif);font-size:2.05rem;font-weight:600;color:var(--indigo);line-height:1;letter-spacing:-.01em;min-width:2.9ch}
   .stat .lbl{font-size:.86rem;line-height:1.5;color:var(--ink-soft);margin-top:12px;max-width:22ch}
 
   /* ---------- MISSION (editorial columns) ---------- */
-  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);align-items:stretch}
-  .pillar{padding:46px 28px 40px 0;border-right:1px solid var(--line-soft);position:relative;transition:transform .4s var(--ease)}
-  .pillar:last-child{border-right:none;padding-right:0}
-  .pillar:not(:first-child){padding-left:30px}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);align-items:stretch;margin-left:-30px;margin-right:-30px}
+  .pillar{padding:46px 30px 40px 30px;border-right:1px solid var(--line-soft);position:relative;transition:transform .4s var(--ease)}
+  .pillar:last-child{border-right:none}
+  
   .pillar:hover{transform:translateY(-5px)}
   /* 2x2 before the columns get too narrow to read */
   @media(max-width:1060px){
-    .pillars{grid-template-columns:repeat(2,1fr)}
-    .pillar{padding:42px 34px 30px 0!important}
-    .pillar:nth-child(2n){border-right:none;padding-left:36px!important;padding-right:0!important}
-    .pillar:nth-child(n+3){border-top:1px solid var(--line-soft)}
+    .pillars{grid-template-columns:1fr;border-top:none;margin-left:0;margin-right:0}
+    .pillar{border-right:none;border-top:1px solid var(--line-soft);padding:38px 0 10px!important}
+    .pillar:first-child{border-top:none}
   }
   .pillar .p-ix{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--peri-deep);margin-bottom:18px}
   .pillar .ic{width:52px;height:52px;border-radius:var(--r-sm);background:linear-gradient(155deg,rgba(166,140,212,.22),rgba(166,140,212,.08));display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--peri-deep);transition:transform .4s var(--ease)}
@@ -269,9 +271,7 @@
     .hero-grid{grid-template-columns:1fr;gap:54px}
     .portrait-wrap{max-width:440px}
     .split{grid-template-columns:1fr;gap:48px}
-    .pillars{grid-template-columns:1fr;border-top:none}
-    .pillar{border-right:none;border-top:1px solid var(--line-soft);padding:36px 0 8px!important}
-    .pillar:first-child{border-top:none}
+    .pillars{margin-left:0;margin-right:0}
     .aware-grid{grid-template-columns:1fr}
     .a-card.feature{grid-row:auto}
     .g-stats{grid-template-columns:1fr;gap:34px}
@@ -324,6 +324,9 @@
     .stat-strip{margin-top:56px}
     .stat{padding:18px 14px}
     .stat .num{font-size:1.85rem}
+    .stat-pair span{gap:6px;font-size:.72rem}
+    .stat-pair b{font-size:1.4rem;min-width:2.7ch}
+    .stat .num.stat-pair{gap:3px}
     .stat .lbl{font-size:.74rem;margin-top:7px;line-height:1.4}
     .sec-head{margin-bottom:44px}
     .story-lead{font-size:1.5rem}
@@ -385,7 +388,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow reveal"><span class="ln"></span> Esophageal Cancer Awareness</span>
+        <span class="eyebrow reveal"><span class="ln"></span> Esophageal and Gastric Cancer Awareness</span>
         <h1 class="reveal">Turning loss into <em>early detection</em> and hope.</h1>
         <p class="lead reveal">The Alexandra Richmond Foundation advances awareness, funds research, and supports the search for earlier detection, better treatments, and cures for esophageal cancer. Our mission carries forward Alexandra's legacy of resilience, kindness, and love.</p>
         <div class="hero-cta reveal">
@@ -423,7 +426,7 @@
       <div class="stat"><div class="num">1 in 5</div><div class="lbl">cases caught at an early, treatable stage</div></div>
       <div class="stat"><div class="num">100%</div><div class="lbl">of gifts fund the mission</div></div>
       <div class="stat"><div class="num">445k</div><div class="lbl">deaths worldwide each year</div></div>
-      <div class="stat"><div class="num">~22%</div><div class="lbl">five-year survival across all stages combined</div></div>
+      <div class="stat"><div class="num stat-pair"><span><b>22%</b> Esophageal</span><span><b>40%</b> Gastric</span></div><div class="lbl">five-year relative survival rate</div></div>
     </div>
     <p class="stat-src reveal">Disease statistics: <a href="https://seer.cancer.gov/statfacts/html/esoph.html" target="_blank" rel="noopener">NCI SEER</a> and <a href="https://www.wcrf.org/preventing-cancer/cancer-statistics/oesophageal-cancer-statistics/" target="_blank" rel="noopener">WCRF / GLOBOCAN 2022</a> — SEER 21, 2016–2022 data; accessed August 2026. The 100% figure is the Foundation&rsquo;s own commitment.</p>
   </div>
@@ -453,11 +456,6 @@
         <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M16 19a4 4 0 0 0-8 0M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.6"/><path d="M20 8v4M22 10h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
         <h3>Bring Hope to Families</h3>
         <p>Alexandra's family became her caregivers, advocates, and fighters. We stand with the patients and families living that same fight.</p>
-      </div>
-      <div class="pillar reveal">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 20.5s-6.8-4.2-6.8-9a3.9 3.9 0 0 1 6.8-2.6A3.9 3.9 0 0 1 18.8 11.5c0 4.8-6.8 9-6.8 9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.4" cy="5.6" r="1.7" stroke="currentColor" stroke-width="1.5"/><circle cx="15.6" cy="5.6" r="1.7" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <h3>Protect Animals</h3>
-        <p>A passionate advocate for animals, Alexandra believed every animal deserved care, compassion, and protection. In her honor, a portion of the Foundation's proceeds may also support animal welfare initiatives.</p>
       </div>
     </div>
   </div>
@@ -535,7 +533,7 @@
         <a href="#top" class="brand" aria-label="The Alexandra Richmond Foundation — home">
           <img class="foot-logo" src="logo-light.png" alt="The Alexandra Richmond Foundation" width="1490" height="335" loading="lazy">
         </a>
-        <p>A nonprofit dedicated to esophageal cancer awareness, research, earlier detection, and family support, in loving memory of Alexandra Richmond.</p>
+        <p>A nonprofit dedicated to esophageal and gastric cancer awareness, research, earlier detection, and family support, in loving memory of Alexandra Richmond.</p>
       </div>
       <div class="foot-col">
         <h2 class="fc-h">Explore</h2>
