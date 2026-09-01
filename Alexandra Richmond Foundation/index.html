@@ -216,6 +216,9 @@
   .g-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:66px;border-top:1px solid rgba(247,244,238,.16);padding-top:52px}
   .g-stat .gn{font-family:var(--serif);font-size:3.5rem;font-weight:600;color:#fff;line-height:1;letter-spacing:-.01em}
   .g-stat .gl{color:rgba(247,244,238,.74);font-size:.98rem;line-height:1.55;margin-top:14px;max-width:26ch}
+  .g-stat .gn.gn-pair{display:flex;flex-direction:column;gap:7px}
+  .gn-pair span{display:flex;align-items:baseline;gap:11px;font-family:var(--sans);font-size:.95rem;font-weight:600;color:rgba(247,244,238,.72);white-space:nowrap}
+  .gn-pair b{font-family:var(--serif);font-size:2.7rem;font-weight:600;color:#fff;line-height:1;letter-spacing:-.01em;min-width:3.1ch}
 
   /* ---------- AWARENESS (1 feature + 2 stacked) ---------- */
   .aware-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:24px}
@@ -308,6 +311,8 @@
     .g-stats{grid-template-columns:1fr 1fr;gap:30px 22px;margin-top:40px;padding-top:34px;text-align:center}
     .g-stat:last-child{grid-column:1/-1}
     .g-stat .gn{font-size:2.5rem}
+    .gn-pair span{gap:8px;font-size:.8rem;justify-content:center}
+    .gn-pair b{font-size:1.85rem;min-width:2.9ch}
     .g-stat .gl{font-size:.86rem;margin:8px auto 0;max-width:22ch}
   }
 
@@ -333,6 +338,7 @@
     .portrait-cap{flex-direction:column;align-items:flex-start;gap:3px}
     .story-body p{font-size:1.04rem}
     .g-stat .gn{font-size:2.3rem}
+    .gn-pair b{font-size:1.7rem}
     .a-card{padding:32px 26px}
     .donate-band{padding:48px 22px;border-radius:var(--r-lg)}
     .give-opts{gap:9px}
@@ -423,12 +429,12 @@
     </div>
 
     <div class="stat-strip reveal">
-      <div class="stat"><div class="num">1 in 5</div><div class="lbl">cases caught at an early, treatable stage</div></div>
+      <div class="stat"><div class="num stat-pair"><span><b>19%</b> Esophageal</span><span><b>32%</b> Gastric</span></div><div class="lbl">caught at an early, treatable stage</div></div>
       <div class="stat"><div class="num">100%</div><div class="lbl">of gifts fund the mission</div></div>
-      <div class="stat"><div class="num">445k</div><div class="lbl">deaths worldwide each year</div></div>
+      <div class="stat"><div class="num">1.1M</div><div class="lbl">deaths worldwide each year</div></div>
       <div class="stat"><div class="num stat-pair"><span><b>22%</b> Esophageal</span><span><b>40%</b> Gastric</span></div><div class="lbl">five-year relative survival rate</div></div>
     </div>
-    <p class="stat-src reveal">Disease statistics: <a href="https://seer.cancer.gov/statfacts/html/esoph.html" target="_blank" rel="noopener">NCI SEER</a> and <a href="https://www.wcrf.org/preventing-cancer/cancer-statistics/oesophageal-cancer-statistics/" target="_blank" rel="noopener">WCRF / GLOBOCAN 2022</a> — SEER 21, 2016–2022 data; accessed August 2026. The 100% figure is the Foundation&rsquo;s own commitment.</p>
+    <p class="stat-src reveal">Disease statistics: NCI SEER (<a href="https://seer.cancer.gov/statfacts/html/esoph.html" target="_blank" rel="noopener">esophageal</a>, <a href="https://seer.cancer.gov/statfacts/html/stomach.html" target="_blank" rel="noopener">gastric</a>) and WCRF / GLOBOCAN 2022 (<a href="https://www.wcrf.org/preventing-cancer/cancer-statistics/oesophageal-cancer-statistics/" target="_blank" rel="noopener">esophageal</a>, <a href="https://www.wcrf.org/preventing-cancer/cancer-statistics/stomach-cancer-statistics/" target="_blank" rel="noopener">gastric</a>) — SEER 21, 2016–2022 data; accessed September 2026. Worldwide totals combine both cancers. The 100% figure is the Foundation&rsquo;s own commitment.</p>
   </div>
 </section>
 
@@ -497,11 +503,11 @@
     <h2 class="reveal">Caught early, this is a survivable disease. Caught late, the odds collapse.</h2>
     <p class="g-lead reveal">The gap between those two outcomes is awareness and detection. That is exactly where your support goes to work.</p>
     <div class="g-stats">
-      <div class="g-stat reveal"><div class="gn">~5%</div><div class="gl">five-year survival once the cancer has spread</div></div>
-      <div class="g-stat reveal"><div class="gn">~49%</div><div class="gl">five-year survival when caught early</div></div>
-      <div class="g-stat reveal"><div class="gn">500k+</div><div class="gl">new cases worldwide each year</div></div>
+      <div class="g-stat reveal"><div class="gn gn-pair"><span><b>5%</b> Esophageal</span><span><b>8%</b> Gastric</span></div><div class="gl">five-year survival once the cancer has spread</div></div>
+      <div class="g-stat reveal"><div class="gn gn-pair"><span><b>49%</b> Esophageal</span><span><b>78%</b> Gastric</span></div><div class="gl">five-year survival when caught early</div></div>
+      <div class="g-stat reveal"><div class="gn">1.5M</div><div class="gl">new cases worldwide each year</div></div>
     </div>
-    <p class="g-sources reveal">Survival figures: <a href="https://seer.cancer.gov/statfacts/html/esoph.html" target="_blank" rel="noopener">NCI SEER</a> &amp; <a href="https://www.cancer.org/cancer/types/esophagus-cancer/detection-diagnosis-staging/survival-rates.html" target="_blank" rel="noopener">American Cancer Society</a>. Worldwide incidence: <a href="https://www.wcrf.org/preventing-cancer/cancer-statistics/oesophageal-cancer-statistics/" target="_blank" rel="noopener">WCRF / GLOBOCAN 2022</a>. SEER 21, 2016–2022 data; accessed August 2026.</p>
+    <p class="g-sources reveal">Five-year relative survival: NCI SEER (<a href="https://seer.cancer.gov/statfacts/html/esoph.html" target="_blank" rel="noopener">esophageal</a>, <a href="https://seer.cancer.gov/statfacts/html/stomach.html" target="_blank" rel="noopener">gastric</a>), SEER 21, 2016–2022 data. Worldwide incidence: WCRF / GLOBOCAN 2022 (<a href="https://www.wcrf.org/preventing-cancer/cancer-statistics/oesophageal-cancer-statistics/" target="_blank" rel="noopener">esophageal</a>, <a href="https://www.wcrf.org/preventing-cancer/cancer-statistics/stomach-cancer-statistics/" target="_blank" rel="noopener">gastric</a>), both cancers combined. Accessed September 2026.</p>
   </div>
 </section>
 
