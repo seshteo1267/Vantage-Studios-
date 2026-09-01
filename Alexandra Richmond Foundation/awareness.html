@@ -220,9 +220,23 @@
   .a-card:hover .ic{transform:scale(1.08) rotate(-3deg)}
   .a-card h3,.a-card .ac-h{font-family:var(--serif);font-weight:600;font-size:1.42rem;margin-bottom:14px;letter-spacing:-.015em;line-height:1.2}
   .a-card p{color:var(--ink-soft);font-size:1rem;line-height:1.65}
-  .a-card .ac-sub{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--peri-deep);margin-top:20px;margin-bottom:2px}
+  .a-card .ac-sub{display:inline-flex;align-items:center;gap:7px;font-size:.63rem;font-weight:800;
+    letter-spacing:.13em;text-transform:uppercase;padding:5px 12px;border-radius:999px;
+    border:1px solid transparent;margin-top:24px;margin-bottom:10px;line-height:1;
+    align-self:flex-start;width:fit-content}
+  .a-card .ac-sub::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
   .a-card .ac-sub:first-of-type{margin-top:14px}
+  /* Esophageal — the Foundation purple */
+  .a-card .ac-sub.is-eso{color:#6a4fa8;background:rgba(166,140,212,.16);border-color:rgba(166,140,212,.34)}
+  .a-card .ac-sub.is-eso + ul li::before{background:#6a4fa8;box-shadow:0 0 0 4px rgba(166,140,212,.16)}
+  /* Gastric — a calm teal, clearly distinct from the purple at a glance */
+  .a-card .ac-sub.is-gas{color:#2f6b6e;background:rgba(47,107,110,.12);border-color:rgba(47,107,110,.30)}
+  .a-card .ac-sub.is-gas + ul li::before{background:#2f6b6e;box-shadow:0 0 0 4px rgba(47,107,110,.14)}
+  /* Both — solid fill so the shared symptoms read as the emphasis */
+  .a-card .ac-sub.is-both{color:#fff;background:var(--indigo);border-color:var(--indigo)}
+  .a-card .ac-sub.is-both::before{background:var(--peri)}
+  .a-card .ac-sub.is-both + ul li::before{background:var(--indigo);box-shadow:0 0 0 4px rgba(51,40,90,.13)}
+  .a-card .ac-sub.is-neutral{color:var(--ink-mute);background:rgba(27,29,46,.06);border-color:rgba(27,29,46,.14)}
   .a-card ul{list-style:none;margin-top:8px}
   .a-card li b{color:var(--indigo);font-weight:800}
   .a-card li{color:var(--ink-soft);font-size:1.02rem;padding-left:26px;position:relative;margin-bottom:12px;border-bottom:1px solid var(--line-soft);padding-bottom:12px}
@@ -348,8 +362,8 @@
   .aware-hero h1{font-size:clamp(2.6rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.03em;margin-top:18px;max-width:15ch}
   .aware-hero h1 em{font-style:italic;color:var(--peri-deep)}
   .aware-hero .lead{font-size:1.16rem;line-height:1.65;color:var(--ink-soft);max-width:60ch;margin-top:24px}
-  .aware-note{margin-top:56px;font-size:.92rem;color:var(--ink-mute);max-width:78ch;line-height:1.6}
-  .aware-note a{color:var(--peri-deep);text-decoration:underline;text-underline-offset:2px;font-weight:600}
+  .aware-note{margin-top:56px;font-size:.72rem;color:var(--ink-mute);max-width:88ch;line-height:1.55;opacity:.92}
+  .aware-note a{color:var(--peri-deep);text-decoration:underline;text-underline-offset:2px;font-weight:700}
 </style>
 <script defer src="/analytics.js"></script>
 </head>
@@ -399,19 +413,19 @@
       <div class="a-card feature reveal">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 3a1 1 0 0 0-1 1v5a6 6 0 0 0 12 0V4a1 1 0 0 0-1-1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 15v2a5 5 0 0 0 10 0v-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg></div>
         <h2 class="ac-h">Common Symptoms</h2>
-        <p class="ac-sub">Esophageal</p>
+        <p class="ac-sub is-eso">Esophageal</p>
         <ul>
           <li>Difficulty or pain when swallowing</li>
           <li>Chest pressure or discomfort</li>
           <li>Chronic cough or hoarseness</li>
         </ul>
-        <p class="ac-sub">Gastric</p>
+        <p class="ac-sub is-gas">Gastric</p>
         <ul>
           <li>Feeling full after only a small meal</li>
           <li>Poor appetite or nausea</li>
           <li>Abdominal pain or discomfort</li>
         </ul>
-        <p class="ac-sub">Both</p>
+        <p class="ac-sub is-both">Both</p>
         <ul>
           <li>Persistent heartburn or indigestion</li>
           <li>Unexplained weight loss</li>
@@ -420,18 +434,18 @@
       <div class="a-card reveal">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
         <h2 class="ac-h">Risk Factors</h2>
-        <p class="ac-sub">Esophageal</p>
+        <p class="ac-sub is-eso">Esophageal</p>
         <ul>
           <li>Long-term acid reflux (GERD)</li>
           <li>Barrett's esophagus</li>
         </ul>
-        <p class="ac-sub">Gastric</p>
+        <p class="ac-sub is-gas">Gastric</p>
         <ul>
           <li><i>H. pylori</i> infection</li>
           <li>Diets high in salted, smoked, or processed foods</li>
           <li>Chronic gastritis or previous stomach surgery</li>
         </ul>
-        <p class="ac-sub">Both</p>
+        <p class="ac-sub is-both">Both</p>
         <ul>
           <li>Smoking and heavy alcohol use</li>
           <li>Excess body weight</li>
@@ -442,7 +456,7 @@
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0Z" stroke="currentColor" stroke-width="1.6"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h2 class="ac-h">Why Early Detection Matters</h2>
         <p>Caught early, these cancers are far more treatable. Caught late, the odds drop sharply. Talking to a doctor about persistent symptoms can change everything. It is the single reason this Foundation exists.</p>
-        <p class="ac-sub">What the numbers show</p>
+        <p class="ac-sub is-neutral">What the numbers show</p>
         <ul>
           <li>Esophageal: <b>49%</b> survive five years when caught early, <b>5%</b> once it has spread</li>
           <li>Gastric: <b>78%</b> survive five years when caught early, <b>8%</b> once it has spread</li>
