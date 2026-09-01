@@ -72,6 +72,48 @@
   status = 404
   force = true
 
+# --- canonical URLs: collapse .html onto the extensionless form ---
+# Netlify's Pretty URLs serve every page at BOTH /story and /story.html with a
+# 200, which is duplicate content. Canonical tags, og:url and the sitemap all
+# point at the extensionless form, so send the .html form there permanently.
+# Listed explicitly rather than as /*.html so that /404.html is left alone and
+# /index.html can go to / instead of a non-existent /index.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/story.html"
+  to = "/story"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/awareness.html"
+  to = "/awareness"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/events.html"
+  to = "/events"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/board.html"
+  to = "/board"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/donate.html"
+  to = "/donate"
+  status = 301
+  force = true
+
 # --- security headers ---
 [[headers]]
   for = "/*"
