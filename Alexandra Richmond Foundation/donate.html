@@ -244,12 +244,20 @@
     .foot-grid{grid-template-columns:1fr 1fr}
   }
   @media(max-width:720px){
+    .foot-col a{padding:12px 0;margin-bottom:2px;min-height:44px;display:flex;align-items:center}
+    /* iOS Safari zooms the page on focus if a field is under 16px */
+    .inp,select.inp{font-size:16px}
+    /* WCAG 2.2 target size: these are standalone controls, not links inside a sentence */
+    .btn-ghost{min-height:44px}
+    .side-src{padding:9px 0;min-height:44px;display:inline-flex;align-items:center}
+  }
+  @media(max-width:720px){
     .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(247,244,238,.98);backdrop-filter:blur(14px);padding:14px 24px 22px;gap:2px;border-bottom:1px solid var(--line);box-shadow:0 24px 36px -22px rgba(27,29,46,.45);align-items:stretch;display:none}
     .nav-links.show{display:flex}
     .nav-links a:not(.btn-nav){padding:14px 6px;font-size:1.02rem;border-bottom:1px solid var(--line-soft)}
     .nav-links a:not(.btn-nav)::after{display:none}
     .btn-nav{text-align:center;padding:15px 22px;margin-top:12px}
-    .menu-toggle{display:block}
+    .menu-toggle{display:block;width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;align-items:center}
     /* static (non-sticky) header on mobile — scrolls away with the page. */
     header{position:relative;background:var(--cream);-webkit-backdrop-filter:none;backdrop-filter:none}
     header.scrolled{background:var(--cream);box-shadow:none}
@@ -259,7 +267,7 @@
     .two-col,.dedicate-fields.show{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     .freq button{display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.15;padding:11px 6px}
-    .freq .tag-best{margin-left:0}
+    .freq .tag-best{margin-left:0;font-size:.7rem;padding:3px 8px}
   }
   @media(max-width:520px){
     .wrap{padding:0 20px}

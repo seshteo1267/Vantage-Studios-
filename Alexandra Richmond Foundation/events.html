@@ -309,7 +309,7 @@
     .nav-links a:not(.btn-nav){padding:14px 6px;font-size:1.02rem;border-bottom:1px solid var(--line-soft)}
     .nav-links a:not(.btn-nav)::after{display:none}
     .btn-nav{text-align:center;padding:15px 22px;margin-top:12px}
-    .menu-toggle{display:block}
+    .menu-toggle{display:block;width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;align-items:center}
     /* static (non-sticky) header on mobile — scrolls away with the page.
        Avoids iOS Safari's translucent-sticky-header repaint gap entirely. */
     header{position:relative;background:var(--cream);-webkit-backdrop-filter:none;backdrop-filter:none}
@@ -325,7 +325,9 @@
     .foot-brand{grid-column:1/-1}
     .foot-col{text-align:center}
     .foot-col .fc-h{margin-bottom:14px}
-    .foot-col a{margin-bottom:2px;padding:10px 0}
+    .foot-col a{margin-bottom:2px;padding:12px 0;min-height:44px;display:flex;align-items:center;justify-content:center}
+    /* WCAG 2.2 target size: ghost links are standalone controls, not inline text */
+    .btn-ghost{min-height:44px}
     .foot-col a:hover{transform:none}
     section.gravitas{padding:64px 0}
     .gravitas .g-lead{font-size:1.04rem;margin-top:18px}
@@ -502,7 +504,8 @@
   }
   @media(max-width:520px){
     .flyer-inner{padding:52px 0 48px}
-    .pp-bar{letter-spacing:.13em;padding:10px 16px}
+    .pp-bar{letter-spacing:.13em;padding:10px 16px;font-size:.72rem}
+    .ev-key-cell .k-lbl{font-size:.72rem;letter-spacing:.16em}
     .pp-tag h1{letter-spacing:.1em}
   }
 </style>
