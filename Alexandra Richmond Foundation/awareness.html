@@ -116,6 +116,10 @@
 
   /* deliberate, uneven vertical rhythm */
   section.block{padding:clamp(78px,10vw,124px) 0}
+  /* the hero already carries 60px of its own bottom padding, so the content
+     section needs less on top than a standalone .block would take */
+  section.block.aware-body{padding-top:clamp(48px,5.4vw,78px);padding-bottom:clamp(52px,6vw,86px)}
+  section.block.aware-cta{padding-top:clamp(58px,7vw,96px)}
   section.gravitas{padding:clamp(92px,12vw,148px) 0}
   .alt{background:var(--cream-deep)}
 
@@ -391,7 +395,7 @@
     .d-stats{grid-template-columns:1fr;gap:16px}
     .d-row b{font-size:1.9rem}
   }
-  .aware-note{margin-top:56px;font-size:.72rem;color:var(--ink-mute);max-width:88ch;line-height:1.55;opacity:.92}
+  .aware-note{margin-top:44px;font-size:.72rem;color:var(--ink-mute);max-width:88ch;line-height:1.55;opacity:.92}
   .aware-note a{color:var(--peri-deep);text-decoration:underline;text-underline-offset:2px;font-weight:700}
 </style>
 <script defer src="/analytics.js"></script>
@@ -436,7 +440,7 @@
 </section>
 
 <!-- ===== AWARENESS CARDS ===== -->
-<section class="block" style="padding-top:12px">
+<section class="block aware-body">
   <div class="wrap">
     <div class="know reveal">
       <div class="k-head">
@@ -540,7 +544,7 @@
 </section>
 
 <!-- ===== DONATE CTA ===== -->
-<section class="block alt">
+<section class="block alt aware-cta">
   <div class="wrap">
     <div class="donate-band reveal">
       <span class="eyebrow"><span class="ln"></span> Make A Difference</span>
