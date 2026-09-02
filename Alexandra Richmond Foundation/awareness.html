@@ -325,19 +325,28 @@
   .aware-hero h1{font-size:clamp(2.6rem,5vw,4.4rem);line-height:1.02;letter-spacing:-.03em;margin-top:18px;max-width:15ch}
   .aware-hero h1 em{font-style:italic;color:var(--peri-deep)}
   .aware-hero .lead{font-size:1.16rem;line-height:1.65;color:var(--ink-soft);max-width:60ch;margin-top:24px}
-  /* ---- Know-the-signs blocks: one row per category, columns per cancer ---- */
-  .know{margin-bottom:78px}
-  .k-head{max-width:660px;margin-bottom:32px}
-  .k-ic{width:42px;height:42px;border-radius:var(--r-sm);background:linear-gradient(155deg,rgba(166,140,212,.22),rgba(166,140,212,.08));display:flex;align-items:center;justify-content:center;color:var(--peri-deep);margin-bottom:18px}
-  .k-head h2,.detect h2{font-family:var(--serif);font-weight:600;font-size:1.9rem;letter-spacing:-.02em;line-height:1.2}
-  .k-head p{color:var(--ink-mute);font-size:1.02rem;line-height:1.6;margin-top:12px}
-  .k-cols{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
-  .k-col{padding:30px 34px 4px}
-  .k-col:first-child{padding-left:0}
-  .k-col:last-child{padding-right:0}
+  /* ---- Awareness: three self-contained panels, one per category ---- */
+  .know{background:#fff;border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--sh-rest);overflow:hidden;margin-bottom:28px}
+  .know:last-of-type{margin-bottom:0}
+
+  /* tinted header strip separates the framing copy from the content below */
+  .k-head{display:flex;align-items:flex-start;gap:18px;padding:30px 36px;
+    background:linear-gradient(180deg,rgba(166,140,212,.09),rgba(166,140,212,.025));
+    border-bottom:1px solid var(--line)}
+  .k-ic{width:46px;height:46px;border-radius:var(--r-sm);background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--peri-deep);flex:none}
+  .k-htxt{flex:1;min-width:0}
+  .k-ix{display:block;font-family:var(--serif);font-style:italic;font-size:.94rem;
+    color:var(--peri-deep);margin-bottom:1px}
+  .k-head h2{font-family:var(--serif);font-weight:600;font-size:1.62rem;letter-spacing:-.02em;line-height:1.2}
+  .k-head p{color:var(--ink-mute);font-size:.97rem;line-height:1.55;margin-top:9px;max-width:76ch}
+
+  /* stretch so the column rules run the full height of the panel */
+  .k-cols{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch}
+  .k-col{padding:28px 32px 30px}
   .k-col + .k-col{border-left:1px solid var(--line-soft)}
 
-  /* one colour per cancer, carried from the tag through to the bullets */
   .ktag{display:inline-flex;align-items:center;gap:7px;font-size:.63rem;font-weight:800;letter-spacing:.13em;
     text-transform:uppercase;padding:5px 12px;border-radius:999px;border:1px solid transparent;
     line-height:1;margin-bottom:22px;width:fit-content}
@@ -346,43 +355,40 @@
   .ktag.is-gas{color:#2f6b6e;background:rgba(47,107,110,.12);border-color:rgba(47,107,110,.30)}
   .ktag.is-both{color:#fff;background:var(--indigo);border-color:var(--indigo)}
   .ktag.is-both::before{background:var(--peri)}
+
   .k-col ul{list-style:none}
-  .k-col li{color:var(--ink-soft);font-size:1.02rem;line-height:1.55;padding-left:25px;position:relative;margin-bottom:17px}
+  .k-col li{color:var(--ink-soft);font-size:1.01rem;line-height:1.55;padding-left:25px;position:relative;margin-bottom:16px}
+  .k-col li:last-child{margin-bottom:0}
   .k-col li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
   .k-col.is-eso li::before{background:#6a4fa8;box-shadow:0 0 0 4px rgba(166,140,212,.16)}
   .k-col.is-gas li::before{background:#2f6b6e;box-shadow:0 0 0 4px rgba(47,107,110,.14)}
   .k-col.is-both li::before{background:var(--indigo);box-shadow:0 0 0 4px rgba(51,40,90,.13)}
 
-  /* ---- Survival panel ---- */
-  .detect{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:46px 48px;
-    box-shadow:var(--sh-rest);display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center}
-  .detect p{color:var(--ink-soft);font-size:1.02rem;line-height:1.65;margin-top:14px}
-  .detect .cta-foot{margin-top:24px}
+  /* third panel: survival figures */
+  .d-body{padding:30px 36px 32px}
   .d-stats{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .d-card{border-radius:var(--r-sm);padding:24px 22px;border:1px solid}
+  .d-card{border-radius:var(--r-sm);padding:24px 24px;border:1px solid}
   .d-card.is-eso{background:rgba(166,140,212,.09);border-color:rgba(166,140,212,.30)}
   .d-card.is-gas{background:rgba(47,107,110,.07);border-color:rgba(47,107,110,.24)}
   .d-card .ktag{margin-bottom:18px}
-  .d-row{display:flex;align-items:baseline;gap:11px}
-  .d-row + .d-row{margin-top:16px;padding-top:16px;border-top:1px solid var(--line-soft)}
+  .d-row{display:flex;align-items:baseline;gap:12px}
+  .d-row + .d-row{margin-top:16px;padding-top:16px;border-top:1px solid rgba(27,29,46,.10)}
   .d-row b{font-family:var(--serif);font-size:2.1rem;font-weight:600;line-height:1;min-width:2.7ch;letter-spacing:-.01em}
   .d-card.is-eso .d-row b{color:#6a4fa8}
   .d-card.is-gas .d-row b{color:#2f6b6e}
   .d-row span{font-size:.84rem;color:var(--ink-soft);line-height:1.35}
-  @media(max-width:1000px){
-    .detect{grid-template-columns:1fr;gap:34px;padding:38px 34px;align-items:start}
-  }
+  .d-foot{margin-top:26px}
   @media(max-width:860px){
-    .know{margin-bottom:58px}
-    .k-cols{grid-template-columns:1fr;border-top:none}
-    .k-col{padding:26px 0 4px}
+    .k-head{padding:24px 24px;gap:14px}
+    .k-head h2{font-size:1.42rem}
+    .k-cols{grid-template-columns:1fr}
+    .k-col{padding:24px 24px 26px}
     .k-col + .k-col{border-left:none;border-top:1px solid var(--line-soft)}
-    .k-head{margin-bottom:22px}
-    .k-head h2,.detect h2{font-size:1.6rem}
+    .d-body{padding:24px 24px 28px}
   }
   @media(max-width:560px){
+    .k-ic{display:none}
     .d-stats{grid-template-columns:1fr;gap:16px}
-    .detect{padding:30px 24px}
     .d-row b{font-size:1.9rem}
   }
   .aware-note{margin-top:56px;font-size:.72rem;color:var(--ink-mute);max-width:88ch;line-height:1.55;opacity:.92}
@@ -435,8 +441,11 @@
     <div class="know reveal">
       <div class="k-head">
         <span class="k-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 3a1 1 0 0 0-1 1v5a6 6 0 0 0 12 0V4a1 1 0 0 0-1-1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 15v2a5 5 0 0 0 10 0v-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg></span>
-        <h2>Common symptoms</h2>
-        <p>Early on, these cancers often cause nothing you would notice. These are the signs worth raising with a doctor, particularly if they persist.</p>
+        <div class="k-htxt">
+          <span class="k-ix">One</span>
+          <h2>Common symptoms</h2>
+          <p>Early on, these cancers often cause nothing you would notice. These are the signs worth raising with a doctor, particularly if they persist.</p>
+        </div>
       </div>
       <div class="k-cols">
         <div class="k-col is-eso">
@@ -468,8 +477,11 @@
     <div class="know reveal">
       <div class="k-head">
         <span class="k-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-        <h2>Risk factors</h2>
-        <p>Risk is not destiny. Having one of these does not mean you will develop cancer, but it does make the conversation worth having sooner.</p>
+        <div class="k-htxt">
+          <span class="k-ix">Two</span>
+          <h2>Risk factors</h2>
+          <p>Risk is not destiny. Having one of these does not mean you will develop cancer, but it does make the conversation worth having sooner.</p>
+        </div>
       </div>
       <div class="k-cols">
         <div class="k-col is-eso">
@@ -498,14 +510,17 @@
       </div>
     </div>
 
-    <div class="detect reveal">
-      <div class="d-copy">
+    <div class="know detect reveal">
+      <div class="k-head">
         <span class="k-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0Z" stroke="currentColor" stroke-width="1.6"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <h2>Why early detection matters</h2>
-        <p>Caught early, these cancers are far more treatable. Caught late, the odds drop sharply. Talking to a doctor about persistent symptoms can change everything. It is the single reason this Foundation exists.</p>
-        <p class="cta-foot"><a href="donate.html" class="btn-ghost" style="font-size:.92rem">Help fund detection <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+        <div class="k-htxt">
+          <span class="k-ix">Three</span>
+          <h2>Why early detection matters</h2>
+          <p>Caught early, these cancers are far more treatable. Caught late, the odds drop sharply. Talking to a doctor about persistent symptoms can change everything. It is the single reason this Foundation exists.</p>
+        </div>
       </div>
-      <div class="d-stats">
+      <div class="d-body">
+        <div class="d-stats">
           <div class="d-card is-eso">
             <p class="ktag is-eso">Esophageal</p>
             <div class="d-row"><b>49%</b><span>survive five years<br>when caught early</span></div>
@@ -516,6 +531,8 @@
             <div class="d-row"><b>78%</b><span>survive five years<br>when caught early</span></div>
             <div class="d-row"><b>8%</b><span>once it has spread</span></div>
           </div>
+        </div>
+        <p class="d-foot"><a href="donate.html" class="btn-ghost" style="font-size:.92rem">Help fund detection <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
       </div>
     </div>
     <p class="aware-note reveal">Symptoms and risk factors above are drawn from the <a href="https://www.cancer.org/cancer/types/esophagus-cancer.html" target="_blank" rel="noopener">American Cancer Society</a> (esophageal and <a href="https://www.cancer.org/cancer/types/stomach-cancer.html" target="_blank" rel="noopener">stomach cancer</a>). Survival figures are from NCI SEER (<a href="https://seer.cancer.gov/statfacts/html/esoph.html" target="_blank" rel="noopener">esophageal</a>, <a href="https://seer.cancer.gov/statfacts/html/stomach.html" target="_blank" rel="noopener">gastric</a>; SEER 21, 2016&ndash;2022). Many of these symptoms have causes other than cancer. This information is for general awareness only and is not medical advice. If you have concerns about your health, please speak with a qualified healthcare provider.</p>
