@@ -17,7 +17,7 @@
 window.ARF_PAYMENT = {
 
   /* ⬇⬇⬇  PASTE YOUR GIVEBUTTER CAMPAIGN LINK HERE  ⬇⬇⬇ */
-  givebutterCampaign: '',   // e.g. 'https://givebutter.com/YOUR-CAMPAIGN'
+  givebutterCampaign: 'https://givebutter.com/arfinc',
   /* ⬆⬆⬆  that is the only required change  ⬆⬆⬆ */
 
   // Optional: a separate Givebutter campaign just for the Power of Purple event.
