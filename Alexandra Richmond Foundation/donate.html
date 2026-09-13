@@ -150,8 +150,6 @@
   .toggle-line input:checked + .switch{background:var(--peri-deep);border-color:var(--peri-deep)}
   .toggle-line input:checked + .switch::after{left:21px}
   .toggle-line .t-txt{font-weight:700;font-size:.95rem}
-  .dedicate-fields{display:none;margin-top:16px;gap:12px;grid-template-columns:1fr 1fr}
-  .dedicate-fields.show{display:grid}
 
   /* inputs */
   .inp{width:100%;border:1.5px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;font-family:var(--sans);font-size:.97rem;color:var(--ink);background:#fff;transition:.2s}
@@ -161,11 +159,6 @@
   select.inp{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%233a3d52' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
 
   /* payment method tabs */
-  .methods{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  .methods button{border:1.5px solid var(--line);background:#fff;border-radius:var(--r-sm);cursor:pointer;padding:14px 6px;min-height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;transition:.22s var(--ease);font-family:var(--sans);font-weight:700;font-size:.78rem;color:var(--ink-soft)}
-  .methods button:hover{border-color:var(--peri);transform:translateY(-2px)}
-  .methods button.sel{border-color:var(--peri-deep);background:rgba(166,140,212,.08);color:var(--indigo)}
-  .methods .m-ic{height:22px;display:flex;align-items:center;font-weight:800;font-size:.95rem}
   .pay-note{margin-top:14px;font-size:.86rem;color:var(--ink-soft);background:var(--cream-deep);border-radius:var(--r-sm);padding:13px 16px;line-height:1.55}
   .pay-note b{color:var(--indigo)}
 
@@ -200,8 +193,6 @@
   .side-card.plain{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--sh-rest)}
   .side-card.plain h3{color:var(--ink)}
   .side-card.plain p{color:var(--ink-soft)}
-  .gb-embed{margin-top:8px;min-height:320px}
-  .gb-embed givebutter-widget{display:block;width:100%}
   .side-stat{display:grid;grid-template-columns:1fr;gap:14px;margin:4px 0 18px}
   .side-stat > div{background:var(--cream-deep);border-radius:var(--r-sm);padding:16px 12px;text-align:center}
   .ss-num{display:block;font-family:var(--serif);font-weight:600;font-size:1.9rem;color:var(--indigo);line-height:1}
@@ -265,8 +256,7 @@
     header.scrolled{background:var(--cream);box-shadow:none}
     .side{flex-direction:column}
     .form-card{padding:32px 24px}
-    .methods{grid-template-columns:repeat(2,1fr)}
-    .two-col,.dedicate-fields.show{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     .freq button{display:flex;flex-direction:column;align-items:center;gap:5px;line-height:1.15;padding:11px 6px}
     .freq .tag-best{margin-left:0;font-size:.7rem;padding:3px 8px}
@@ -350,13 +340,8 @@
     <!-- DONATION FORM -->
     <div class="form-card reveal">
       <h2>Make your gift</h2>
-      <p class="sub">Choose an amount and how you'd like to give. It takes less than a minute.</p>
+      <p class="sub">Choose your amount, then complete your gift on our secure Givebutter page. It takes less than a minute.</p>
 
-      <!-- Givebutter's own form, mounted here when configured. It replaces the
-           fields below so nothing is asked twice. -->
-      <div id="gbEmbed" class="gb-embed" hidden></div>
-
-      <div id="legacyForm">
       <!-- frequency -->
       <span class="field-label">Gift frequency</span>
       <div class="freq" id="freq">
@@ -385,54 +370,6 @@
         </div>
       </div>
 
-      <!-- dedication -->
-      <div class="block-gap">
-        <label class="toggle-line">
-          <input type="checkbox" id="dedToggle">
-          <span class="switch"></span>
-          <span class="t-txt">Dedicate this gift in memory or honor of someone</span>
-        </label>
-        <div class="dedicate-fields" id="dedFields">
-          <select class="inp" id="dedType" aria-label="Dedication type">
-            <option value="memory">In memory of</option>
-            <option value="honor">In honor of</option>
-          </select>
-          <input class="inp" id="dedName" type="text" placeholder="Their name" aria-label="Dedication name">
-        </div>
-      </div>
-
-      <!-- donor info -->
-      <div class="block-gap">
-        <span class="field-label">Your information</span>
-        <div class="two-col" style="margin-bottom:12px">
-          <input class="inp" id="firstName" type="text" placeholder="First name" autocomplete="given-name" aria-label="First name">
-          <input class="inp" id="lastName" type="text" placeholder="Last name" autocomplete="family-name" aria-label="Last name">
-        </div>
-        <input class="inp" id="email" type="email" placeholder="Email address (for your receipt)" autocomplete="email" aria-label="Email address">
-      </div>
-
-      <!-- payment method -->
-      <div class="block-gap">
-        <span class="field-label">Payment method</span>
-        <div class="methods" id="methods">
-          <button data-method="card" class="sel">
-            <span class="m-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M2 9.5h20" stroke="currentColor" stroke-width="1.6"/></svg></span>
-            Card
-          </button>
-          <button data-method="venmo" aria-label="Venmo">
-            <span class="m-ic" style="color:#287AAF">Venmo</span>
-          </button>
-          <button data-method="paypal" aria-label="PayPal">
-            <span class="m-ic" style="color:#003087">PayPal</span>
-          </button>
-          <button data-method="wallet">
-            <span class="m-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M16 3a4 4 0 0 0-4 3 4 4 0 0 0-4-3M12 6c0-1.5 1-3 3-3M9 21h6a4 4 0 0 0 4-4v-5a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v5a4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
-            Apple Pay
-          </button>
-        </div>
-        <div class="pay-note" id="payNote"></div>
-      </div>
-
       <!-- summary + submit -->
       <div class="summary">
         <span class="s-lbl">Your gift</span>
@@ -444,9 +381,8 @@
       </button>
       <div class="secure-line" id="secureLine">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>
-        Secure, encrypted payment. Your receipt is emailed instantly.
+        Secure, encrypted payment via Givebutter. Your receipt is emailed instantly.
       </div>
-      </div><!-- /legacyForm -->
     </div>
 
     <!-- SIDEBAR -->
@@ -558,7 +494,7 @@
   };
 
   // donation state — this object is exactly what a checkout call needs
-  const gift = { amount:50, frequency:'once', method:'card', dedicate:false, dedType:'memory', dedName:'' };
+  const gift = { amount:50, frequency:'once' };
 
   // ---- impact copy keyed to amount ----
   function impactCopy(a){
@@ -572,27 +508,15 @@
   }
   function fmt(n){ return Number(n).toLocaleString('en-US'); }
 
-  // ---- payment method notes ----
-  const methodNotes = {
-    card:   '<b>Card</b>: enter your card details securely on the next step. Apple/Google Pay also available.',
-    venmo:  '<b>Venmo</b>: you\'ll be handed off to Venmo to approve your gift. (Foundation: '+PAYMENT.venmoHandle+')',
-    paypal: '<b>PayPal</b>: complete your gift with your PayPal balance or linked account on the next step.',
-    wallet: '<b>Apple Pay</b>: confirm with Face ID / Touch ID on the next step. No card typing needed.'
-  };
-
   // ---- DOM ----
   const els = {
     freq: document.getElementById('freq'),
     amounts: document.getElementById('amounts'),
     custom: document.getElementById('customAmt'),
     impactTxt: document.getElementById('impactTxt'),
-    methods: document.getElementById('methods'),
-    payNote: document.getElementById('payNote'),
     total: document.getElementById('totalAmt'),
     totalFreq: document.getElementById('totalFreq'),
     btnAmt: document.getElementById('btnAmt'),
-    dedToggle: document.getElementById('dedToggle'),
-    dedFields: document.getElementById('dedFields')
   };
 
   function render(){
@@ -600,7 +524,6 @@
     if(els.btnAmt) els.btnAmt.textContent = fmt(gift.amount||0);  // btnAmt is absent while donations are disabled
     els.totalFreq.textContent = gift.frequency==='monthly' ? '/mo' : '';
     els.impactTxt.innerHTML = impactCopy(gift.amount||0);
-    els.payNote.innerHTML = methodNotes[gift.method];
   }
 
   /* ---- payment-ready gate ----
@@ -628,7 +551,7 @@
     if(ready){
       label.innerHTML = 'Donate $<span id="btnAmt">'+fmt(gift.amount||0)+'</span>';
       els.btnAmt = document.getElementById('btnAmt');
-      secure.innerHTML = LOCK_SVG + ' Secure, encrypted payment. Your receipt is emailed instantly.';
+      secure.innerHTML = LOCK_SVG + ' Secure, encrypted payment via Givebutter. Your receipt is emailed instantly.';
     } else {
       label.textContent = 'Donations opening soon';
       els.btnAmt = null;
@@ -654,20 +577,6 @@
     gift.amount = Number(els.custom.value)||0; render();
   });
 
-  // payment method
-  els.methods.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
-    els.methods.querySelectorAll('button').forEach(x=>x.classList.remove('sel'));
-    b.classList.add('sel'); gift.method=b.dataset.method; render();
-  }));
-
-  // dedication
-  els.dedToggle.addEventListener('change',()=>{
-    gift.dedicate=els.dedToggle.checked;
-    els.dedFields.classList.toggle('show',gift.dedicate);
-  });
-  document.getElementById('dedType').addEventListener('change',e=>gift.dedType=e.target.value);
-  document.getElementById('dedName').addEventListener('input',e=>gift.dedName=e.target.value);
-
   // ---- submit / checkout handoff ----
   function startCheckout(payload){
     switch(PAYMENT.provider){
@@ -680,13 +589,11 @@
         // Hand off to Givebutter's hosted, PCI-compliant checkout with the amount pre-filled.
         const base = PAYMENT.givebutterCampaign.replace(/\/+$/,'');
         const p = new URLSearchParams();
+        // Givebutter accepts only amount, frequency, fund and promo. Donor
+        // details cannot be pre-filled, which is why this page no longer asks
+        // for them: Givebutter collects name, email and any dedication itself.
         if(payload.amount) p.set('amount', payload.amount);
         if(payload.frequency==='monthly') p.set('frequency','monthly');
-        if(payload.donor){
-          if(payload.donor.firstName) p.set('first_name', payload.donor.firstName);
-          if(payload.donor.lastName)  p.set('last_name',  payload.donor.lastName);
-          if(payload.donor.email)     p.set('email',      payload.donor.email);
-        }
         window.location.href = base + (base.includes('?')?'&':'?') + p.toString();
         return;
       }
@@ -703,37 +610,10 @@
     }
   }
 
-  /* If the inline Givebutter form is configured, show it and hide our own
-     fields entirely — Givebutter asks for amount, frequency, dedication and
-     donor details itself, and unlike the hand-off it actually records them. */
-  (function mountEmbeddedForm(){
-    const CO = window.ARF_CHECKOUT;
-    if(!CO || !CO.embedReady()) return;
-    const mount = document.getElementById('gbEmbed');
-    const legacy = document.getElementById('legacyForm');
-    if(!CO.mountForm(mount)) return;
-    mount.hidden = false;
-    if(legacy) legacy.hidden = true;
-    const sub = document.querySelector('.form-card .sub');
-    if(sub) sub.textContent = "Choose an amount and give securely. It takes less than a minute.";
-  })();
-
   document.getElementById('giveBtn').addEventListener('click',()=>{
     if(!paymentReady()) return;                                  // backstop: disabled buttons shouldn't act
     if(!gift.amount || gift.amount<1){ els.custom.focus(); return; }
-    startCheckout({
-      amount: gift.amount,
-      frequency: gift.frequency,
-      method: gift.method,
-      dedicate: gift.dedicate,
-      dedType: gift.dedType,
-      dedName: gift.dedName,
-      donor: {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value
-      }
-    });
+    startCheckout({ amount: gift.amount, frequency: gift.frequency });
   });
 
   // mobile menu

@@ -20,21 +20,6 @@ window.ARF_PAYMENT = {
   givebutterCampaign: 'https://givebutter.com/arfinc',
   /* ⬆⬆⬆  that is the only required change  ⬆⬆⬆ */
 
-  /* ---- EMBEDDED DONATION FORM (optional, but the best experience) ----
-     With these two filled in, the donate page shows Givebutter's own form
-     inline instead of sending the visitor away. No duplicated questions, and
-     the dedication / note fields actually reach the Foundation.
-
-     Both IDs come from the Givebutter dashboard:
-       ACCOUNT ID  Settings -> Developers -> Widgets -> Installation
-                   (looks like GQ0CYPreD923uMBv)
-       WIDGET ID   Campaigns -> arfinc -> Sharing -> Widgets -> Form -> Embed
-                   (the id="..." inside the <givebutter-widget> tag)
-
-     Leave either blank and the page keeps the current hand-off flow. */
-  givebutterAccountId: '',
-  givebutterFormWidgetId: '',
-
   // Optional: a separate Givebutter campaign just for the Power of Purple event.
   // Leave empty to send sponsorships and tickets to the main campaign above.
   eventCampaign: '',
@@ -60,31 +45,6 @@ window.ARF_CHECKOUT = {
   // Is checkout actually usable for this context?
   ready(context){
     return !!this.campaignFor(context);
-  },
-
-  // Is the inline Givebutter form configured? (donate page only)
-  embedReady(){
-    const c = window.ARF_PAYMENT || {};
-    return !!(c.givebutterAccountId && c.givebutterFormWidgetId);
-  },
-
-  /* Render Givebutter's own donation form inside `mount`.
-     Loads their widget library once, then drops in the widget element. */
-  mountForm(mount){
-    if(!this.embedReady() || !mount) return false;
-    const c = window.ARF_PAYMENT;
-    if(!document.getElementById('gb-widgets-lib')){
-      const s = document.createElement('script');
-      s.id = 'gb-widgets-lib';
-      s.src = 'https://widgets.givebutter.com/latest.umd.cjs?acct=' +
-              encodeURIComponent(c.givebutterAccountId) + '&p=other';
-      s.async = true;
-      document.head.appendChild(s);
-    }
-    const w = document.createElement('givebutter-widget');
-    w.setAttribute('id', c.givebutterFormWidgetId);
-    mount.appendChild(w);
-    return true;
   },
 
   /* Build a Givebutter hosted-checkout URL with the amount pre-filled.
