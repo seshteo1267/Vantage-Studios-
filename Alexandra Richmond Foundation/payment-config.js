@@ -57,7 +57,7 @@ window.ARF_CHECKOUT = {
     if(!base) return '';
     const p = new URLSearchParams();
     if(opts.amount) p.set('amount', opts.amount);
-    if(opts.frequency === 'monthly') p.set('frequency', 'recurring');
+    if(opts.frequency === 'monthly') p.set('frequency', 'monthly');
     // Givebutter surfaces this back to the Foundation on the transaction record,
     // which is how a gift gets attributed to a sponsorship tier or a ticket.
     if(opts.note) p.set('note', opts.note);

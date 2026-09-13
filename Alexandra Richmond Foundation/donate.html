@@ -673,7 +673,7 @@
         const base = PAYMENT.givebutterCampaign.replace(/\/+$/,'');
         const p = new URLSearchParams();
         if(payload.amount) p.set('amount', payload.amount);
-        if(payload.frequency==='monthly') p.set('frequency','recurring');
+        if(payload.frequency==='monthly') p.set('frequency','monthly');
         if(payload.donor){
           if(payload.donor.firstName) p.set('first_name', payload.donor.firstName);
           if(payload.donor.lastName)  p.set('last_name',  payload.donor.lastName);
