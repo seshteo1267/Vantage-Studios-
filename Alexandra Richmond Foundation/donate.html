@@ -200,6 +200,8 @@
   .side-card.plain{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--sh-rest)}
   .side-card.plain h3{color:var(--ink)}
   .side-card.plain p{color:var(--ink-soft)}
+  .gb-embed{margin-top:8px;min-height:320px}
+  .gb-embed givebutter-widget{display:block;width:100%}
   .side-stat{display:grid;grid-template-columns:1fr;gap:14px;margin:4px 0 18px}
   .side-stat > div{background:var(--cream-deep);border-radius:var(--r-sm);padding:16px 12px;text-align:center}
   .ss-num{display:block;font-family:var(--serif);font-weight:600;font-size:1.9rem;color:var(--indigo);line-height:1}
@@ -350,6 +352,11 @@
       <h2>Make your gift</h2>
       <p class="sub">Choose an amount and how you'd like to give. It takes less than a minute.</p>
 
+      <!-- Givebutter's own form, mounted here when configured. It replaces the
+           fields below so nothing is asked twice. -->
+      <div id="gbEmbed" class="gb-embed" hidden></div>
+
+      <div id="legacyForm">
       <!-- frequency -->
       <span class="field-label">Gift frequency</span>
       <div class="freq" id="freq">
@@ -439,6 +446,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>
         Secure, encrypted payment. Your receipt is emailed instantly.
       </div>
+      </div><!-- /legacyForm -->
     </div>
 
     <!-- SIDEBAR -->
@@ -694,6 +702,21 @@
         console.warn('No payment provider configured; donation not processed.', payload);
     }
   }
+
+  /* If the inline Givebutter form is configured, show it and hide our own
+     fields entirely — Givebutter asks for amount, frequency, dedication and
+     donor details itself, and unlike the hand-off it actually records them. */
+  (function mountEmbeddedForm(){
+    const CO = window.ARF_CHECKOUT;
+    if(!CO || !CO.embedReady()) return;
+    const mount = document.getElementById('gbEmbed');
+    const legacy = document.getElementById('legacyForm');
+    if(!CO.mountForm(mount)) return;
+    mount.hidden = false;
+    if(legacy) legacy.hidden = true;
+    const sub = document.querySelector('.form-card .sub');
+    if(sub) sub.textContent = "Choose an amount and give securely. It takes less than a minute.";
+  })();
 
   document.getElementById('giveBtn').addEventListener('click',()=>{
     if(!paymentReady()) return;                                  // backstop: disabled buttons shouldn't act
